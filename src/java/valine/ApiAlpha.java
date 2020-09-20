@@ -12,7 +12,10 @@ import mars.jsonsimple.JsonPair;
 public class ApiAlpha extends HttpServlet {
     //***********************************************************************
     public static final String CREDENTIALTOKEN = "token";
+    public static final String SESSIONID = "sessionid";
     public static final String USERID = "userid";
+    public static final String SESSIONVALID = "sessionvalid";
+    public static final String APPLICATION = "application";
     //=======================================================================
     public static final String RESULT = "result";
     public static final String RESULTOK = "OK";

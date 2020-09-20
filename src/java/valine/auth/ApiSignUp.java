@@ -30,9 +30,8 @@ public class ApiSignUp extends ApiAlpha {
         String email = req.getParameter(EMAIL);
         String password = req.getParameter(PASSWORD);
         String passwordretype = req.getParameter(PASSWORDRETYPE);
-        String app = req.getParameter(APPLICATION);
         //===================================================================
-            //We check both password match.
+        //We check both password match.
         if (!passwordretype.equals(password)) {
             this.sendErrorResponse(resp, "Password confirmation does not match", AppException.PASSWORDSETDIFFERENCE);
             fleeRequest(flowalpha);
