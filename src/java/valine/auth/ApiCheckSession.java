@@ -1,5 +1,6 @@
 package valine.auth;
 //***************************************************************************
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mars.jsonsimple.JsonObject;
@@ -8,6 +9,7 @@ import methionine.auth.Session;
 import valine.ApiAlpha;
 import valine.FlowAlpha;
 //***************************************************************************
+@WebServlet(name = "ApiCheckSession", urlPatterns = {ApiCheckSession.URL}, loadOnStartup=1)
 public class ApiCheckSession extends ApiAlpha {
     public static final String URL = "/auth/checksession";
     public static final String JSESSION = "session";
