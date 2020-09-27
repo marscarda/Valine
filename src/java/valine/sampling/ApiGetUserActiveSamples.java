@@ -17,6 +17,8 @@ public class ApiGetUserActiveSamples extends ApiAlpha {
     public static final String SAMPLEID = "sampleid";
     public static final String SURVEYID = "surveyid";
     public static final String TITLE = "title";
+    public static final String TEXT = "text";
+    public static final String BRIEF = "brief";
     public static final String USERID = "userid";
     public static final String USERNAME = "username";
     public static final String JSAMPLES = "samples";
@@ -47,6 +49,8 @@ public class ApiGetUserActiveSamples extends ApiAlpha {
                 array.addPair(new JsonPair(SAMPLEID, sample.getSampleId()));
                 array.addPair(new JsonPair(SURVEYID, sample.getSurveyId()));
                 array.addPair(new JsonPair(TITLE, sample.getTitle()));
+                array.addPair(new JsonPair(TEXT, sample.getText()));
+                array.addPair(new JsonPair(BRIEF, sample.getBrief()));
                 array.addPair(new JsonPair(USERID, sample.getUserId()));
                 array.addToArray();
             }
