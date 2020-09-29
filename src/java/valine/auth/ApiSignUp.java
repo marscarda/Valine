@@ -43,8 +43,8 @@ public class ApiSignUp extends ApiAlpha {
             sgnupuser.setName(user);
             sgnupuser.setPassWord(password);
             sgnupuser.setEmail(email);
-            long userid = flowalpha.getAurigaObject().getAuthInterface().signUpUser(sgnupuser);
-            Session session = flowalpha.getAurigaObject().getAuthInterface().createSession(flowalpha.getIpAddress(), userid);
+            long userid = flowalpha.getAurigaObject().getAuthLambda().signUpUser(sgnupuser);
+            Session session = flowalpha.getAurigaObject().getAuthLambda().createSession(flowalpha.getIpAddress(), userid);
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
             jsonresp.addPair(new JsonPair(RESULTDESCRIPTION, "Signup succeded"));

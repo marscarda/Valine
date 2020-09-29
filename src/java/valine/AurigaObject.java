@@ -4,7 +4,7 @@ import methionine.Electra;
 import methionine.auth.AuthLamda;
 import tryptophan.survey.SurveyLambda;
 import tryptophan.survey.metric.MetricQueryInterface;
-import tryptophan.survey.publicview.InterfaceQueryPubView;
+import tryptophan.survey.publicview.PublicViewLambda;
 import tryptophan.survey.sampling.SampleLamda;
 import tryptophan.universe.UniverseQryInterface;
 //**************************************************************************
@@ -20,14 +20,14 @@ public class AurigaObject {
     /**
      * The direct connection to the auth data in DB.
      */
-    AuthLamda authinterface = null;
-    public AuthLamda getAuthInterface () throws Exception {
-        if (authinterface == null) {
-            authinterface = new AuthLamda();
-            authinterface.setElectraObject(electra);
-            authinterface.setDataBaseName(LifeTimeValues.dbauth);
+    AuthLamda authlambda = null;
+    public AuthLamda getAuthLambda () throws Exception {
+        if (authlambda == null) {
+            authlambda = new AuthLamda();
+            authlambda.setElectraObject(electra);
+            authlambda.setDataBaseName(LifeTimeValues.dbauth);
         }
-        return authinterface;
+        return authlambda;
     }
     //*************************************************************
     UniverseQryInterface universeqryinterface = null;
@@ -60,10 +60,10 @@ public class AurigaObject {
         return surveylambda;
     }
     //*************************************************************
-    InterfaceQueryPubView ifacepublicvie = null;
-    public InterfaceQueryPubView getPubViewInterface () throws Exception {
+    PublicViewLambda ifacepublicvie = null;
+    public PublicViewLambda getPubViewInterface () throws Exception {
         if (ifacepublicvie == null) {
-            ifacepublicvie = new InterfaceQueryPubView();
+            ifacepublicvie = new PublicViewLambda();
             ifacepublicvie.setElectraObject(electra);
             ifacepublicvie.setDataBaseName(LifeTimeValues.dbsurvey);
         }

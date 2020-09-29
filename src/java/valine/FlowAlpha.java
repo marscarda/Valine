@@ -87,7 +87,7 @@ public class FlowAlpha {
         if (session != null) return session.isValid();
         //-----------------------------------------------
         try {
-            session = this.getAurigaObject().getAuthInterface().getSession(ipaddress, token);
+            session = this.getAurigaObject().getAuthLambda().getSession(ipaddress, token);
             return session.isValid();
         }
         catch (AppException e) {
@@ -114,7 +114,7 @@ public class FlowAlpha {
         if (session == null) return new User();
         if (!session.isValid()) { return new User(); }
         try {
-            logeduser = this.getAurigaObject().getAuthInterface().getUser(session.getUserId(), true);
+            logeduser = this.getAurigaObject().getAuthLambda().getUser(session.getUserId(), true);
             return logeduser;
         }
         catch (Exception e) {

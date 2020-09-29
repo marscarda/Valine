@@ -31,7 +31,7 @@ public class ApiCreateSession extends ApiAlpha {
         String app = req.getParameter(APPLICATION);
         //==========================================================
         try {
-            Session session = flowalpha.getAurigaObject().getAuthInterface().createSession(req.getRemoteAddr(), user, pass);
+            Session session = flowalpha.getAurigaObject().getAuthLambda().createSession(req.getRemoteAddr(), user, pass);
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
             jsonresp.addPair(new JsonPair(RESULTDESCRIPTION, "Signup succeded"));
