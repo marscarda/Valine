@@ -9,7 +9,7 @@ import mars.jsonsimple.JsonPair;
 import methionine.AppException;
 import methionine.auth.Session;
 import tryptophan.epsilon.AsertyTBN;
-import tryptophan.epsilon.QwertyTBN;
+import tryptophan.epsilon.SampleForm;
 import tryptophan.epsilon.SamplingCenter;
 import tryptophan.survey.SurveyItemPointer;
 import tryptophan.survey.publicview.PVCandidate;
@@ -20,7 +20,7 @@ import valine.FlowAlpha;
 public class ApiGetSampleForm extends ApiAlpha {
     public static final String URL = "/sampling/getsampleform";
     public static final String SAMPLEID = "sampleid";
-    
+    public static final String LABEL = "label";
     public static final String JFORMITEMS = "formitems";
     //***********************************************************************
     @Override
@@ -49,13 +49,13 @@ public class ApiGetSampleForm extends ApiAlpha {
             center.setSurveyLambda(flowalpha.getAurigaObject().getSurveyLambda());
             center.setPublicViewLambda(flowalpha.getAurigaObject().getPubViewInterface());
             //-------------------------------------
-            QwertyTBN qwerty = center.getQwerty(sampleid, session.getUserId());
+            SampleForm sform = center.getSampleForm(sampleid, session.getUserId());
             //-------------------------------------
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
             jsonresp.addPair(new JsonPair(RESULTDESCRIPTION, "Samples Ok"));
             //-------------------------------------------------------
-            jsonresp.addPair(new JsonPair(JFORMITEMS, qwertyQ(qwerty)));
+            jsonresp.addPair(new JsonPair(JFORMITEMS, qwertyQ(sform)));
             //-------------------------------------------------------
             this.sendResponse(resp, jsonresp);
         }
@@ -75,9 +75,9 @@ public class ApiGetSampleForm extends ApiAlpha {
     //***********************************************************************
     public static final String ITEMTYPE = "itemtype";
     public static final String ITEMID = "itemid";
-    private JsonObject qwertyQ (QwertyTBN qwerty) {
+    private JsonObject qwertyQ (SampleForm sform) {
         //===================================================================
-        AsertyTBN[] items = qwerty.getItems();
+        AsertyTBN[] items = sform.getItems();
         JsonArray array = new JsonArray();
         for (AsertyTBN item : items) {
             switch(item.getType()) {
