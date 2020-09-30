@@ -20,6 +20,8 @@ import valine.FlowAlpha;
 public class ApiGetSampleForm extends ApiAlpha {
     public static final String URL = "/sampling/getsampleform";
     public static final String SAMPLEID = "sampleid";
+    public static final String TITLE = "title";
+    public static final String BRIEF = "brief";
     public static final String LABEL = "label";
     public static final String JFORMITEMS = "formitems";
     //***********************************************************************
@@ -55,7 +57,7 @@ public class ApiGetSampleForm extends ApiAlpha {
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
             jsonresp.addPair(new JsonPair(RESULTDESCRIPTION, "Samples Ok"));
             //-------------------------------------------------------
-            jsonresp.addPair(new JsonPair(JFORMITEMS, qwertyQ(sform)));
+            jsonresp.addPair(new JsonPair(JFORMITEMS, JSampleForm(sform)));
             //-------------------------------------------------------
             this.sendResponse(resp, jsonresp);
         }
@@ -75,7 +77,7 @@ public class ApiGetSampleForm extends ApiAlpha {
     //***********************************************************************
     public static final String ITEMTYPE = "itemtype";
     public static final String ITEMID = "itemid";
-    private JsonObject qwertyQ (SampleForm sform) {
+    private JsonObject JSampleForm (SampleForm sform) {
         //===================================================================
         AsertyTBN[] items = sform.getItems();
         JsonArray array = new JsonArray();
@@ -85,13 +87,15 @@ public class ApiGetSampleForm extends ApiAlpha {
                     PVCandidate candidate = (PVCandidate)item.getItem();
                     array.addPair(new JsonPair(ITEMTYPE, item.getType()));
                     array.addPair(new JsonPair(ITEMID, item.getItemId()));
-                    array.addPair(new JsonPair("label", candidate.getLabel()));
+                    array.addPair(new JsonPair(LABEL, candidate.getLabel()));
                 }
             }
             array.addToArray();
         }
         //===================================================================
         JsonObject jitems = new JsonObject();
+        jitems.addPair(new JsonPair(TITLE, sform.getTitle()));
+        jitems.addPair(new JsonPair(BRIEF, sform.getBrief()));
         jitems.addPair(new JsonPair(COUNT, array.getCount()));
         jitems.addPair(new JsonPair(ITEMS, array.getArray()));
         //===================================================================
