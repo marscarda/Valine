@@ -47,6 +47,7 @@ public class ApiCastFieldResponses extends ApiAlpha {
             FieldCollector fcollector = new FieldCollector();
             fcollector.setSurveyLambda(flowalpha.getAurigaObject().getSurveyLambda());
             fcollector.setSampleLambda(flowalpha.getAurigaObject().getSampleLambda());
+            fcollector.setResponseLambda(flowalpha.getAurigaObject().getResponseLambda());
             fcollector.castFieldResponses(fieldcast);
             //-------------------------------------------------------
             JsonObject jsonresp = new JsonObject();

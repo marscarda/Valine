@@ -5,6 +5,7 @@ import methionine.auth.AuthLamda;
 import tryptophan.survey.varclusters.VarClusterLambda;
 import tryptophan.survey.metric.MetricQueryInterface;
 import tryptophan.survey.publicview.PublicViewLambda;
+import tryptophan.survey.responses.ResponseLambda;
 import tryptophan.survey.sampling.SampleLamda;
 import tryptophan.universe.UniverseQryInterface;
 //**************************************************************************
@@ -78,6 +79,16 @@ public class AurigaObject {
             samplelamda.setDataBaseName(LifeTimeValues.dbsurvey);
         }
         return samplelamda;
+    }
+    //*************************************************************
+    ResponseLambda responcelambda = null;
+    public ResponseLambda getResponseLambda () throws Exception {
+        if (responcelambda == null) {
+            responcelambda = new ResponseLambda();
+            responcelambda.setElectraObject(electra);
+            responcelambda.setDataBaseName(LifeTimeValues.dbsurvey);
+        }
+        return responcelambda;
     }
     //*************************************************************
 }
