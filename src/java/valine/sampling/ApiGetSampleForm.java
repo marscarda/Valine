@@ -8,8 +8,8 @@ import mars.jsonsimple.JsonObject;
 import mars.jsonsimple.JsonPair;
 import methionine.AppException;
 import methionine.auth.Session;
-import tryptophan.epsilon.FormItem;
-import tryptophan.epsilon.SampleForm;
+import tryptophan.epsilon.VarItem;
+import tryptophan.epsilon.FieldInputForm;
 import tryptophan.epsilon.SamplingCenter;
 import tryptophan.survey.varclusters.VarPointer;
 import tryptophan.survey.publicview.PVCandidate;
@@ -51,7 +51,7 @@ public class ApiGetSampleForm extends ApiAlpha {
             center.setSurveyLambda(flowalpha.getAurigaObject().getSurveyLambda());
             center.setPublicViewLambda(flowalpha.getAurigaObject().getPubViewInterface());
             //-------------------------------------
-            SampleForm sform = center.getSampleForm(sampleid, session.getUserId());
+            FieldInputForm sform = center.getSampleForm(sampleid, session.getUserId());
             //-------------------------------------
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
@@ -77,11 +77,11 @@ public class ApiGetSampleForm extends ApiAlpha {
     //***********************************************************************
     public static final String ITEMTYPE = "itemtype";
     public static final String ITEMID = "itemid";
-    private JsonObject JSampleForm (SampleForm sform) {
+    private JsonObject JSampleForm (FieldInputForm sform) {
         //===================================================================
-        FormItem[] items = sform.getItems();
+        VarItem[] items = sform.getItems();
         JsonArray array = new JsonArray();
-        for (FormItem item : items) {
+        for (VarItem item : items) {
             switch(item.getType()) {
                 case VarPointer.ITEMTYPE_PUBIMAGE: {
                     PVCandidate candidate = (PVCandidate)item.getItem();
