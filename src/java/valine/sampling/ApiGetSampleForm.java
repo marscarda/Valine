@@ -8,10 +8,10 @@ import mars.jsonsimple.JsonObject;
 import mars.jsonsimple.JsonPair;
 import methionine.AppException;
 import methionine.auth.Session;
-import tryptophan.epsilon.AsertyTBN;
+import tryptophan.epsilon.FormItem;
 import tryptophan.epsilon.SampleForm;
 import tryptophan.epsilon.SamplingCenter;
-import tryptophan.survey.SurveyItemPointer;
+import tryptophan.survey.varclusters.VarPointer;
 import tryptophan.survey.publicview.PVCandidate;
 import valine.ApiAlpha;
 import valine.FlowAlpha;
@@ -79,11 +79,11 @@ public class ApiGetSampleForm extends ApiAlpha {
     public static final String ITEMID = "itemid";
     private JsonObject JSampleForm (SampleForm sform) {
         //===================================================================
-        AsertyTBN[] items = sform.getItems();
+        FormItem[] items = sform.getItems();
         JsonArray array = new JsonArray();
-        for (AsertyTBN item : items) {
+        for (FormItem item : items) {
             switch(item.getType()) {
-                case SurveyItemPointer.ITEMTYPE_PUBIMAGE: {
+                case VarPointer.ITEMTYPE_PUBIMAGE: {
                     PVCandidate candidate = (PVCandidate)item.getItem();
                     array.addPair(new JsonPair(ITEMTYPE, item.getType()));
                     array.addPair(new JsonPair(ITEMID, item.getItemId()));
