@@ -7,6 +7,7 @@ import mars.jsonsimple.JsonArray;
 import mars.jsonsimple.JsonObject;
 import mars.jsonsimple.JsonPair;
 import methionine.auth.Session;
+import tryptophan.epsilon.SamplingCenter;
 import tryptophan.survey.sampling.Sample;
 import valine.ApiAlpha;
 import valine.FlowAlpha;
@@ -21,6 +22,7 @@ public class ApiGetUserActiveSamples extends ApiAlpha {
     public static final String BRIEF = "brief";
     public static final String USERID = "userid";
     public static final String USERNAME = "username";
+    public static final String RESPCOUNT = "respcount";
     public static final String JSAMPLES = "samples";
     //***********************************************************************
     @Override
@@ -39,7 +41,11 @@ public class ApiGetUserActiveSamples extends ApiAlpha {
         }
         //==========================================================
         try {
-            Sample[] samples = flowalpha.getAurigaObject().getSampleLambda().getSamplesByUser(session.getUserId());
+            SamplingCenter center = new SamplingCenter();
+            center.setSurveyLambda(flowalpha.getAurigaObject().getSurveyLambda());
+            center.setSampleLambda(flowalpha.getAurigaObject().getSampleLambda());
+            center.serResponseLambda(flowalpha.getAurigaObject().getResponseLambda());
+            Sample[] samples = center.fetchCommitedSamples(session.getUserId());
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
             jsonresp.addPair(new JsonPair(RESULTDESCRIPTION, "Samples Ok"));
@@ -52,6 +58,7 @@ public class ApiGetUserActiveSamples extends ApiAlpha {
                 array.addPair(new JsonPair(TEXT, sample.getText()));
                 array.addPair(new JsonPair(BRIEF, sample.getBrief()));
                 array.addPair(new JsonPair(USERID, sample.getUserId()));
+                array.addPair(new JsonPair(RESPCOUNT, sample.getResponsesCount()));
                 array.addToArray();
             }
             //-------------------------------------------------------
