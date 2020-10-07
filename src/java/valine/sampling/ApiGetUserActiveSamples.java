@@ -56,7 +56,7 @@ public class ApiGetUserActiveSamples extends ApiAlpha {
                 array.addPair(new JsonPair(SURVEYID, sample.getSurveyId()));
                 array.addPair(new JsonPair(TITLE, sample.getTitle()));
                 array.addPair(new JsonPair(TEXT, sample.getText()));
-                array.addPair(new JsonPair(BRIEF, sample.getBrief()));
+                array.addPair(new JsonPair(BRIEF, sample.getTask()));
                 array.addPair(new JsonPair(USERID, sample.getUserId()));
                 array.addPair(new JsonPair(RESPCOUNT, sample.getResponsesCount()));
                 array.addToArray();
