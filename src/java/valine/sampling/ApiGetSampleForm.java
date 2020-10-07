@@ -11,7 +11,7 @@ import methionine.auth.Session;
 import tryptophan.epsilon.VarItem;
 import tryptophan.epsilon.FieldInputForm;
 import tryptophan.epsilon.SamplingCenter;
-import tryptophan.survey.varclusters.VarPointer;
+import tryptophan.survey.baseform.VarPointer;
 import tryptophan.survey.publicview.PVCandidate;
 import valine.ApiAlpha;
 import valine.FlowAlpha;

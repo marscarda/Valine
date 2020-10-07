@@ -2,7 +2,7 @@ package valine;
 //**************************************************************************
 import methionine.Electra;
 import methionine.auth.AuthLamda;
-import tryptophan.survey.varclusters.VarClusterLambda;
+import tryptophan.survey.baseform.VarClusterLambda;
 import tryptophan.survey.metric.MetricQueryInterface;
 import tryptophan.survey.publicview.PublicViewLambda;
 import tryptophan.survey.responses.ResponseLambda;
