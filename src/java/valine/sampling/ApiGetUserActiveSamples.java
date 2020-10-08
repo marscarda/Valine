@@ -44,7 +44,7 @@ public class ApiGetUserActiveSamples extends ApiAlpha {
             SamplingCenter center = new SamplingCenter();
             center.setSurveyLambda(flowalpha.getAurigaObject().getSurveyLambda());
             center.setSampleLambda(flowalpha.getAurigaObject().getSampleLambda());
-            center.serResponseLambda(flowalpha.getAurigaObject().getResponseLambda());
+            center.setResponseLambda(flowalpha.getAurigaObject().getResponseLambda());
             Sample[] samples = center.fetchCommitedSamples(session.getUserId());
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
