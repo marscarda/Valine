@@ -7,8 +7,8 @@ import mars.jsonsimple.JsonObject;
 import mars.jsonsimple.JsonPair;
 import methionine.AppException;
 import methionine.auth.Session;
-import tryptophan.epsilon.FieldCollector;
-import tryptophan.epsilon.FieldCast;
+import lycine.epsilon.FieldCollector;
+import lycine.epsilon.FieldCast;
 import valine.ApiAlpha;
 import valine.FlowAlpha;
 //***************************************************************************

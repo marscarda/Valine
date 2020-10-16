@@ -7,8 +7,8 @@ import mars.jsonsimple.JsonArray;
 import mars.jsonsimple.JsonObject;
 import mars.jsonsimple.JsonPair;
 import methionine.auth.Session;
-import tryptophan.epsilon.SamplingCenter;
-import tryptophan.survey.sampling.Sample;
+import lycine.epsilon.SamplingCenter;
+import tryptophan.survey.sampling.SampleRecord;
 import valine.ApiAlpha;
 import valine.FlowAlpha;
 //***************************************************************************
@@ -45,13 +45,13 @@ public class ApiGetUserActiveSamples extends ApiAlpha {
             center.setSurveyLambda(flowalpha.getAurigaObject().getSurveyLambda());
             center.setSampleLambda(flowalpha.getAurigaObject().getSampleLambda());
             center.setResponseLambda(flowalpha.getAurigaObject().getResponseLambda());
-            Sample[] samples = center.fetchCommitedSamples(session.getUserId());
+            SampleRecord[] samples = center.fetchCommitedSamples(session.getUserId());
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
             jsonresp.addPair(new JsonPair(RESULTDESCRIPTION, "Samples Ok"));
             //-------------------------------------------------------
             JsonArray array = new JsonArray();
-            for (Sample sample : samples) {
+            for (SampleRecord sample : samples) {
                 array.addPair(new JsonPair(SAMPLEID, sample.getSampleId()));
                 array.addPair(new JsonPair(SURVEYID, sample.getSurveyId()));
                 array.addPair(new JsonPair(TITLE, sample.getTitle()));
