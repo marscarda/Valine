@@ -2,10 +2,10 @@ package valine;
 //**************************************************************************
 import methionine.Electra;
 import methionine.auth.AuthLamda;
-import tryptophan.survey.baseform.VarClusterLambda;
+import tryptophan.survey.action.VarClusterLambda;
 import tryptophan.survey.metric.MetricQueryInterface;
 import tryptophan.survey.publicview.PublicViewLambda;
-import tryptophan.survey.responses.ResponseLambda;
+import tryptophan.survey.reaction.RectionLambda;
 import tryptophan.survey.sampling.SampleLamda;
 import tryptophan.universe.UniverseQryInterface;
 //**************************************************************************
@@ -81,10 +81,10 @@ public class AurigaObject {
         return samplelamda;
     }
     //*************************************************************
-    ResponseLambda responcelambda = null;
-    public ResponseLambda getResponseLambda () throws Exception {
+    RectionLambda responcelambda = null;
+    public RectionLambda getResponseLambda () throws Exception {
         if (responcelambda == null) {
-            responcelambda = new ResponseLambda();
+            responcelambda = new RectionLambda();
             responcelambda.setElectraObject(electra);
             responcelambda.setDataBaseName(LifeTimeValues.dbsurvey);
         }

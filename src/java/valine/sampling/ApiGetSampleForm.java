@@ -11,7 +11,7 @@ import methionine.auth.Session;
 import lycine.epsilon.VarItem;
 import lycine.epsilon.FieldInputForm;
 import lycine.epsilon.SamplingCenter;
-import tryptophan.survey.baseform.VarPointer;
+import tryptophan.survey.action.ActionItemPointer;
 import tryptophan.survey.publicview.PVCandidate;
 import valine.ApiAlpha;
 import valine.FlowAlpha;
@@ -83,7 +83,7 @@ public class ApiGetSampleForm extends ApiAlpha {
         JsonArray array = new JsonArray();
         for (VarItem item : items) {
             switch(item.getType()) {
-                case VarPointer.ITEMTYPE_PUBIMAGE: {
+                case ActionItemPointer.ITEMTYPE_PUBIMAGE: {
                     PVCandidate candidate = (PVCandidate)item.getItem();
                     array.addPair(new JsonPair(ITEMTYPE, item.getType()));
                     array.addPair(new JsonPair(ITEMID, item.getItemId()));
