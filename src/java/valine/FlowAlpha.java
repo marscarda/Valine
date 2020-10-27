@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 import methionine.AppException;
 import methionine.Electra;
 import methionine.auth.Session;
-import methionine.auth.User;
 //**************************************************************************
 /**
  * Holds all needed data to process a request and response flow.
@@ -28,7 +27,6 @@ public class FlowAlpha {
     AurigaObject auriga = null;
     //======================================================================
     Session session = null;
-    User logeduser = null;
     //**********************************************************************
     void setRequest (HttpServletRequest request) { this.request = request; }
     void setResponse (HttpServletResponse response) { this.response = response; }
@@ -107,20 +105,6 @@ public class FlowAlpha {
     public Session getSession () {
         if (session == null) return new Session();
         return session;
-    }
-    //**********************************************************************
-    public User getLogedUser () {
-        if (logeduser != null) return logeduser;
-        if (session == null) return new User();
-        if (!session.isValid()) { return new User(); }
-        try {
-            logeduser = this.getAurigaObject().getAuthLambda().getUser(session.getUserId(), true);
-            return logeduser;
-        }
-        catch (Exception e) {
-            System.out.println("Could not recover logged in user. ghrtrgfgfg (FlowAlpha)");
-            return new User();
-        }
     }
     //**********************************************************************
     public void setStatusResponse (int status) {
