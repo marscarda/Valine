@@ -2,7 +2,7 @@ package valine;
 //**************************************************************************
 import methionine.Electra;
 import methionine.auth.AuthLamda;
-import methionine.project.WorkTeamLambda;
+import methionine.project.ProjectLambda;
 import tryptophan.survey.action.ActionSetLambda;
 import tryptophan.survey.metric.MetricQueryInterface;
 import tryptophan.survey.publicview.PublicViewLambda;
@@ -32,10 +32,10 @@ public class AurigaObject {
         return authlambda;
     }
     //*************************************************************
-    WorkTeamLambda workteamlamda = null;
-    public WorkTeamLambda getWorkTeamLambda () throws Exception {
+    ProjectLambda workteamlamda = null;
+    public ProjectLambda getWorkTeamLambda () throws Exception {
         if (workteamlamda == null) {
-            workteamlamda = new WorkTeamLambda();
+            workteamlamda = new ProjectLambda();
             workteamlamda.setElectraObject(electra);
             workteamlamda.setDataBaseName(LifeTimeValues.dbauth);
         }
