@@ -6,14 +6,12 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import methionine.Electra;
 import methionine.auth.AuthLamda;
-import methionine.project.ProjectLambda;
-import methionine.pub.publication.PubsTables;
 import tryptophan.survey.metric.MetricQueryInterface;
 import tryptophan.survey.SurveyTabs;
 import tryptophan.universe.UniverseQryInterface;
 //****************************************************************************
 @WebListener
-public class ContextListener implements ServletContextListener {
+public class ContextListenerDelete implements ServletContextListener {
     //***********************************************************************
     //These properties are directly initialized into Electra.
     static final String PROP_MASTER_DBHOST = "db_master_host";
@@ -110,21 +108,6 @@ public class ContextListener implements ServletContextListener {
             }            
         }
         //----------------------------------------------------------
-        //We ensure Workteams tables exists 
-        if (LifeTimeValues.dbauth != null) {
-            ProjectLambda workteam = new ProjectLambda();
-            workteam.setElectraObject(electra);
-            workteam.setDataBaseName(LifeTimeValues.dbauth);
-            try { 
-                workteam.ensureTables();
-                System.out.println("Workteam Tables in " + LifeTimeValues.dbauth + " Ensured");
-            }
-            catch (Exception e) {
-                System.out.println("ERROR: Ensuring " + LifeTimeValues.dbauth + " tables error");
-                System.out.println(e.getMessage());
-            }            
-        }
-        //----------------------------------------------------------
         //We ensure Universe tables exists
         if (LifeTimeValues.dbuniverse != null) {
             UniverseQryInterface univ = new UniverseQryInterface();
@@ -164,20 +147,6 @@ public class ContextListener implements ServletContextListener {
             }
             catch (Exception e) {
                 System.out.println("ERROR: Ensuring " + LifeTimeValues.dbsurvey + " tables error");
-                System.out.println(e.getMessage());
-            }            
-        }
-        //----------------------------------------------------------
-        if (LifeTimeValues.dbpublication != null) {
-            PubsTables pubs = new PubsTables();
-            pubs.setElectraObject(electra);
-            pubs.setDataBaseName(LifeTimeValues.dbpublication);
-            try { 
-                pubs.ensureTables();
-                System.out.println("Tables in " + LifeTimeValues.dbpublication + " Ensured");
-            }
-            catch (Exception e) {
-                System.out.println("ERROR: Ensuring " + LifeTimeValues.dbpublication + " tables error");
                 System.out.println(e.getMessage());
             }            
         }
