@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebListener;
 import methionine.Electra;
 import methionine.auth.AuthLamda;
 import methionine.project.ProjectLambda;
-import methionine.pub.publication.PubsTables;
+import serine.blogging.publication.PubsTables;
 import tryptophan.survey.metric.MetricQueryInterface;
 import tryptophan.survey.SurveyTabs;
 import tryptophan.universe.UniverseQryInterface;
