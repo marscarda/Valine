@@ -4,6 +4,7 @@ import java.util.Properties;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+import methinine.billing.BillingLambda;
 import methionine.Electra;
 import methionine.auth.AuthLamda;
 import methionine.project.ProjectLambda;
@@ -123,6 +124,21 @@ public class ContextListener implements ServletContextListener {
             }
             catch (Exception e) {
                 System.out.println("ERROR: Ensuring " + LifeTimeValues.dbauth + " tables error");
+                System.out.println(e.getMessage());
+            }            
+        }
+        //----------------------------------------------------------
+        //We ensure Billing tables exist 
+        if (LifeTimeValues.dbbilling != null) {
+            BillingLambda billing = new BillingLambda();
+            billing.setElectraObject(electra);
+            billing.setDataBaseName(LifeTimeValues.dbbilling);
+            try { 
+                billing.ensureTables();
+                System.out.println("Billing Tables in " + LifeTimeValues.dbbilling + " Ensured");
+            }
+            catch (Exception e) {
+                System.out.println("ERROR: Ensuring " + LifeTimeValues.dbbilling + " tables error");
                 System.out.println(e.getMessage());
             }            
         }
