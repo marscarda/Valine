@@ -49,7 +49,7 @@ public class ApiGetSampleForm extends ApiAlpha {
             center.setAuthLambda(flowalpha.getAurigaObject().getAuthLambda());
             center.setSampleLambda(flowalpha.getAurigaObject().getSampleLambda());
             center.setSurveyLambda(flowalpha.getAurigaObject().getSurveyLambda());
-            center.setPublicViewLambda(flowalpha.getAurigaObject().getPubViewInterface());
+            //center.setPublicViewLambda(flowalpha.getAurigaObject().getPubViewInterface());
             //-------------------------------------
             FieldInputForm sform = center.getSampleForm(sampleid, session.getUserId());
             //-------------------------------------

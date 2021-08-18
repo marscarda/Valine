@@ -1,6 +1,6 @@
 package valine;
 //**************************************************************************
-import methinine.billing.BillingLambda;
+import methionine.billing.BillingLambda;
 import methionine.Electra;
 import methionine.auth.AuthLamda;
 import methionine.project.ProjectLambda;
@@ -11,10 +11,10 @@ import serine.webmedia.WebMediaList;
 import threonine.map.MapsLambda;
 import tryptophan.survey.action.ActionSetLambda;
 import tryptophan.survey.metric.MetricQueryInterface;
-import tryptophan.survey.publicview.PublicViewLambda;
+//import tryptophan.survey.publicview.PublicViewLambda;
 import tryptophan.survey.reaction.ReactionLambda;
 import tryptophan.survey.sampling.SampleLamda;
-import tryptophan.universe.UniverseQryInterface;
+//import tryptophan.universe.UniverseQryInterface;
 //**************************************************************************
 /**
  * Holds instances of interfaces to interact with the database.
@@ -61,6 +61,8 @@ public class AurigaObject {
         return billinglambda;
     }
     //*************************************************************
+    
+    /*
     UniverseQryInterface universeqryinterface = null;
     public UniverseQryInterface getUniverseQryInterface () throws Exception {
         if (universeqryinterface == null) {
@@ -70,6 +72,8 @@ public class AurigaObject {
         }
         return universeqryinterface;
     }
+    */
+    
     //*************************************************************
     MapsLambda mapslambda = null;
     public MapsLambda getMapsLambda () {
@@ -101,6 +105,8 @@ public class AurigaObject {
         return surveylambda;
     }
     //*************************************************************
+    
+    /*
     PublicViewLambda ifacepublicvie = null;
     public PublicViewLambda getPubViewInterface () throws Exception {
         if (ifacepublicvie == null) {
@@ -110,6 +116,8 @@ public class AurigaObject {
         }
         return ifacepublicvie;
     }
+    */
+    
     //*************************************************************
     SampleLamda samplelamda = null;
     public SampleLamda getSampleLambda () throws Exception {

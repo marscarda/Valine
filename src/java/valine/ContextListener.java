@@ -4,7 +4,7 @@ import java.util.Properties;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
-import methinine.billing.BillingLambda;
+import methionine.billing.BillingLambda;
 import methionine.Electra;
 import methionine.auth.AuthLamda;
 import methionine.project.ProjectLambda;
@@ -13,7 +13,7 @@ import serine.pubs.PubsTables;
 import threonine.map.QueryMapTabs;
 import tryptophan.survey.metric.MetricQueryInterface;
 import tryptophan.survey.SurveyTabs;
-import tryptophan.universe.UniverseQryInterface;
+//import tryptophan.universe.UniverseQryInterface;
 //****************************************************************************
 @WebListener
 public class ContextListener implements ServletContextListener {
@@ -144,6 +144,8 @@ public class ContextListener implements ServletContextListener {
         }
         //----------------------------------------------------------
         //We ensure Universe tables exists
+        
+        /*
         if (LifeTimeValues.dbuniverse != null) {
             UniverseQryInterface univ = new UniverseQryInterface();
             univ.setElectraObject(electra);
@@ -157,6 +159,8 @@ public class ContextListener implements ServletContextListener {
                 System.out.println(e.getMessage());
             }            
         }
+        */
+        
         //----------------------------------------------------------
         //We ensure Universe tables exists
         if (LifeTimeValues.dbmaps != null) {

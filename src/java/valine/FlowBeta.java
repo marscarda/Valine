@@ -41,6 +41,8 @@ public class FlowBeta extends FlowAlpha {
         }
     }
     //**********************************************************************
+    
+    /*
     public Project getCurrentProject () {
         if (project != null) return project;
         if (session == null) return new Project();
@@ -60,6 +62,8 @@ public class FlowBeta extends FlowAlpha {
             return new Project();
         }
     }
+    */
+    
     //**********************************************************************
     public CookiesFlow getCookiesFlow () { return cookieflow; }
     public CookiesFlow.LANGUAGE getLanguage () { return cookieflow.getLanguage(); }
