@@ -6,11 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import mars.jsonsimple.JsonObject;
 import mars.jsonsimple.JsonPair;
 import methionine.AppException;
+import methionine.auth.AuthErrorCodes;
 import methionine.auth.Session;
 import valine.ApiAlpha;
-import static valine.ApiAlpha.RESULT;
-import static valine.ApiAlpha.RESULTDESCRIPTION;
-import static valine.ApiAlpha.RESULTOK;
 import valine.FlowAlpha;
 //***************************************************************************
 @WebServlet(name = "ApiSignInSession", urlPatterns = {ApiCreateSession.URL}, loadOnStartup=1)
@@ -18,7 +16,7 @@ public class ApiCreateSession extends ApiAlpha {
     public static final String URL = "/auth/createsession";
     public static final String USER = "user";
     public static final String PASSWORD = "password";
-    public static final String APPLICATION = "application";
+    public static final String APPID = "appid";
     //***********************************************************************
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
@@ -28,7 +26,7 @@ public class ApiCreateSession extends ApiAlpha {
         //===================================================================
         String user = req.getParameter(USER);
         String pass = req.getParameter(PASSWORD);
-        String app = req.getParameter(APPLICATION);
+        String app = req.getParameter(APPID);
         //==========================================================
         try {
             Session session = flowalpha.getAurigaObject().getAuthLambda().createSession(req.getRemoteAddr(), user, pass);
@@ -41,13 +39,12 @@ public class ApiCreateSession extends ApiAlpha {
         }
         catch (AppException e) {
             switch (e.getErrorCode()) {
-                //-------------------------------------------
-                case AppException.USERNOTFOUND:
-                case AppException.INVALIDPASS:
-                    this.sendErrorResponse(resp, "Invalid Credentials", AppException.INVALIDCREDENTIAL);
+                case AuthErrorCodes.USERNOTFOUND:
+                case AuthErrorCodes.INVALIDPASSWORD:
+                    this.sendErrorResponse(resp, "Invalid Credentials", AuthErrorCodes.INVALIDCREDENTIALS);
                     break;
-                //-------------------------------------------
             }
+            this.sendErrorResponse(resp, e.getMessage(), e.getErrorCode());
         }
         catch (Exception e) {
             sendServerErrorResponse(resp);
