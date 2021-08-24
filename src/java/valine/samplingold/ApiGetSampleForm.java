@@ -1,4 +1,4 @@
-package valine.sampling;
+package valine.samplingold;
 //***************************************************************************
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -47,7 +47,7 @@ public class ApiGetSampleForm extends ApiAlpha {
             //-------------------------------------------------------
             SamplingCenter center = new SamplingCenter();
             center.setAuthLambda(flowalpha.getAurigaObject().getAuthLambda());
-            center.setSampleLambda(flowalpha.getAurigaObject().getSampleLambda());
+            //center.setSampleLambda(flowalpha.getAurigaObject().getSampleLambda());
             center.setSurveyLambda(flowalpha.getAurigaObject().getSurveyLambda());
             //center.setPublicViewLambda(flowalpha.getAurigaObject().getPubViewInterface());
             //-------------------------------------

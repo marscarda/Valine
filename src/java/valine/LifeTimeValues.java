@@ -9,8 +9,14 @@ public class LifeTimeValues {
     static final String PROP_DATABASE_BILLING = "db_billing";
     static final String PROP_DATABASE_UNIVERSE = "db_universe";
     static final String PROP_DATABASE_MAPS = "db_maps";
+    static final String PROP_DATABASE_DESIGN = "db_design";
+    static final String PROP_DATABASE_SAMPLE = "db_sample";
+    
+    @Deprecated
     static final String PROP_DATABASE_METRICS = "db_metrics";
+    @Deprecated
     static final String PROP_DATABASE_SURVEY = "db_survey";
+    @Deprecated
     static final String PROP_DATABASE_ACCESS = "db_access";
     //-----------------------------------------------------------------
     static final String PROP_DATABASE_PUBLICATION = "db_publication";
@@ -22,10 +28,19 @@ public class LifeTimeValues {
     public static String dbbilling = PROP_DATABASE_BILLING;
     public static String dbuniverse = PROP_DATABASE_UNIVERSE;
     public static String dbmaps = PROP_DATABASE_MAPS;
+    public static String dbdesign = PROP_DATABASE_DESIGN;
+    public static String dbsample = PROP_DATABASE_SAMPLE;
+    //-----------------------------------------------------------------
+
+
+    
     public static String dbmetrics = PROP_DATABASE_METRICS;
+    @Deprecated
     public static String dbsurvey = PROP_DATABASE_SURVEY;
+    @Deprecated
     public static String dbaccess = PROP_DATABASE_ACCESS;
     //-----------------------------------------------------------------
+    @Deprecated
     public static String dbpublication = PROP_DATABASE_PUBLICATION;
     //=================================================================
     public static boolean usingssl = false;
@@ -54,6 +69,14 @@ public class LifeTimeValues {
         aux = props.getProperty(PROP_DATABASE_MAPS);
         if (aux == null) System.out.println("Warning: Property " + PROP_DATABASE_MAPS + " Not set");
         else dbmaps = aux;
+        //--------------------------------------------------------
+        aux = props.getProperty(PROP_DATABASE_DESIGN);
+        if (aux == null) System.out.println("Warning: Property " + PROP_DATABASE_DESIGN + " Not set");
+        else dbdesign = aux;
+        //--------------------------------------------------------
+        aux = props.getProperty(PROP_DATABASE_SAMPLE);
+        if (aux == null) System.out.println("Warning: Property " + PROP_DATABASE_SAMPLE + " Not set");
+        else dbsample = aux;
         //--------------------------------------------------------
         aux = props.getProperty(PROP_DATABASE_METRICS);
         if (aux == null) System.out.println("Warning: Property " + PROP_DATABASE_METRICS + " Not set");

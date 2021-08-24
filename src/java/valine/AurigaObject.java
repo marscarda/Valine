@@ -9,12 +9,11 @@ import serine.blogging.publication.PubsLambda;
 import serine.pubs.object.ObjectPubLambda;
 import serine.webmedia.WebMediaList;
 import threonine.map.MapsLambda;
+import tryptophan.design.DesignLambda;
+import tryptophan.sample.SampleLambda;
 import tryptophan.survey.action.ActionSetLambda;
 import tryptophan.survey.metric.MetricQueryInterface;
-//import tryptophan.survey.publicview.PublicViewLambda;
 import tryptophan.survey.reaction.ReactionLambda;
-import tryptophan.survey.sampling.SampleLamda;
-//import tryptophan.universe.UniverseQryInterface;
 //**************************************************************************
 /**
  * Holds instances of interfaces to interact with the database.
@@ -61,19 +60,25 @@ public class AurigaObject {
         return billinglambda;
     }
     //*************************************************************
-    
-    /*
-    UniverseQryInterface universeqryinterface = null;
-    public UniverseQryInterface getUniverseQryInterface () throws Exception {
-        if (universeqryinterface == null) {
-            universeqryinterface = new UniverseQryInterface();
-            universeqryinterface.setElectraObject(electra);
-            universeqryinterface.setDataBaseName(LifeTimeValues.dbuniverse);
+    DesignLambda designlambda = null;
+    public DesignLambda getDesignLambda () throws Exception {
+        if (designlambda == null) {
+            designlambda = new DesignLambda();
+            designlambda.setElectraObject(electra);
+            designlambda.setDataBaseName(LifeTimeValues.dbdesign);
         }
-        return universeqryinterface;
+        return designlambda;
     }
-    */
-    
+    //*************************************************************
+    SampleLambda samplelambda = null;
+    public SampleLambda getSampleLambda () {
+        if (samplelambda == null) {
+            samplelambda = new SampleLambda();
+            samplelambda.setElectraObject(electra);
+            billinglambda.setDataBaseName(LifeTimeValues.dbsample);
+        }
+        return samplelambda;
+    }
     //*************************************************************
     MapsLambda mapslambda = null;
     public MapsLambda getMapsLambda () {
@@ -86,6 +91,7 @@ public class AurigaObject {
     }
     //*************************************************************
     MetricQueryInterface metricsinterface = null;
+    @Deprecated
     public MetricQueryInterface getMetricsQryInterface () throws Exception {
         if (metricsinterface == null) {
             metricsinterface = new MetricQueryInterface();
@@ -96,6 +102,7 @@ public class AurigaObject {
     }
     //*************************************************************
     ActionSetLambda surveylambda = null;
+    @Deprecated
     public ActionSetLambda getSurveyLambda () {
         if (surveylambda == null) {
             surveylambda = new ActionSetLambda();
@@ -105,31 +112,8 @@ public class AurigaObject {
         return surveylambda;
     }
     //*************************************************************
-    
-    /*
-    PublicViewLambda ifacepublicvie = null;
-    public PublicViewLambda getPubViewInterface () throws Exception {
-        if (ifacepublicvie == null) {
-            ifacepublicvie = new PublicViewLambda();
-            ifacepublicvie.setElectraObject(electra);
-            ifacepublicvie.setDataBaseName(LifeTimeValues.dbsurvey);
-        }
-        return ifacepublicvie;
-    }
-    */
-    
-    //*************************************************************
-    SampleLamda samplelamda = null;
-    public SampleLamda getSampleLambda () throws Exception {
-        if (samplelamda == null) {
-            samplelamda = new SampleLamda();
-            samplelamda.setElectraObject(electra);
-            samplelamda.setDataBaseName(LifeTimeValues.dbsurvey);
-        }
-        return samplelamda;
-    }
-    //*************************************************************
     ReactionLambda responcelambda = null;
+    @Deprecated
     public ReactionLambda getResponseLambda () throws Exception {
         if (responcelambda == null) {
             responcelambda = new ReactionLambda();
@@ -140,6 +124,7 @@ public class AurigaObject {
     }
     //*************************************************************
     AccessLambda accesslambda = null;
+    @Deprecated
     public AccessLambda getAccessLambda () throws Exception {
         if (accesslambda == null) {
             accesslambda = new AccessLambda();
@@ -150,6 +135,7 @@ public class AurigaObject {
     }
     //*************************************************************
     PubsLambda pubslambda = null;
+    @Deprecated
     public PubsLambda getPubsLambda () throws Exception {
         if (pubslambda == null) {
             pubslambda = new PubsLambda();
@@ -160,6 +146,7 @@ public class AurigaObject {
     }
     //*************************************************************
     ObjectPubLambda objpubslambda = null;
+    @Deprecated
     public ObjectPubLambda getObjectPubsLambda () throws Exception {
         if (objpubslambda == null) {
             objpubslambda = new ObjectPubLambda();
@@ -170,6 +157,7 @@ public class AurigaObject {
     }
     //*************************************************************
     static final WebMediaList MEDIALIST = new WebMediaList();
+    @Deprecated
     public WebMediaList mediaList () { return MEDIALIST; }
     //*************************************************************
 }

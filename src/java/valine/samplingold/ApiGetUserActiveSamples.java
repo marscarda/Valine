@@ -1,4 +1,4 @@
-package valine.sampling;
+package valine.samplingold;
 //***************************************************************************
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,7 +43,7 @@ public class ApiGetUserActiveSamples extends ApiAlpha {
         try {
             SamplingCenter center = new SamplingCenter();
             center.setSurveyLambda(flowalpha.getAurigaObject().getSurveyLambda());
-            center.setSampleLambda(flowalpha.getAurigaObject().getSampleLambda());
+            //center.setSampleLambda(flowalpha.getAurigaObject().getSampleLambda());
             center.setResponseLambda(flowalpha.getAurigaObject().getResponseLambda());
             SampleRecord[] samples = center.fetchCommitedSamples(session.getUserId());
             JsonObject jsonresp = new JsonObject();
