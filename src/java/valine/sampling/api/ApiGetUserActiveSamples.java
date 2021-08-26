@@ -6,15 +6,17 @@ import javax.servlet.http.HttpServletResponse;
 import lycine.sample.SampleCenterField;
 import mars.jsonsimple.JsonObject;
 import mars.jsonsimple.JsonPair;
+import methionine.auth.AuthErrorCodes;
 import methionine.auth.Session;
 import tryptophan.sample.Sample;
 import valine.ApiAlpha;
 import valine.FlowAlpha;
+import valine.jbuilders.JSample;
 //***************************************************************************
-@WebServlet(name = "ApiGetUserEntrustedSamples", urlPatterns = {ApiGetUserActiveSamples.URL}, loadOnStartup=1)
+@WebServlet(name = "ApiGetUserActiveSamples", urlPatterns = {ApiGetUserActiveSamples.URL}, loadOnStartup=1)
 public class ApiGetUserActiveSamples extends ApiAlpha {
     public static final String URL = "/api/sampling/getuseractivesamples";
-    public static final String JSESSION = "session";
+    public static final String JSAMPLES = "samples";
     //***********************************************************************
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
@@ -23,10 +25,8 @@ public class ApiGetUserActiveSamples extends ApiAlpha {
         this.initializeJob(flowalpha);
         //===================================================================
         Session session = flowalpha.getSession();
-        boolean allowed = false;
-        if (session.isValid()) allowed = true;
-        if (!allowed) {
-            this.sendErrorResponse(resp, "Unauthorized", UNAUTHORIZED);
+        if (!session.isValid()) {
+            this.sendErrorResponse(resp, "No valid session", AuthErrorCodes.NOVALIDSESSION);
             fleeRequest(flowalpha);
             return;
         }
@@ -38,9 +38,7 @@ public class ApiGetUserActiveSamples extends ApiAlpha {
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
             jsonresp.addPair(new JsonPair(RESULTDESCRIPTION, "Samples List"));
-            
-            //JSON with samples here.
-            
+            jsonresp.addPair(new JsonPair(JSAMPLES, JSample.getSamples(samples)));
             this.sendResponse(resp, jsonresp);
         }
         catch (Exception e) {
@@ -54,6 +52,5 @@ public class ApiGetUserActiveSamples extends ApiAlpha {
         //===================================================================
    }
     //***********************************************************************
-    
 }
 //***************************************************************************

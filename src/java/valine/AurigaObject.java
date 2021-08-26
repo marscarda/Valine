@@ -75,7 +75,7 @@ public class AurigaObject {
         if (samplelambda == null) {
             samplelambda = new SampleLambda();
             samplelambda.setElectraObject(electra);
-            billinglambda.setDataBaseName(LifeTimeValues.dbsample);
+            samplelambda.setDataBaseName(LifeTimeValues.dbsample);
         }
         return samplelambda;
     }
