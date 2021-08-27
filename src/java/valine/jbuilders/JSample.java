@@ -16,6 +16,7 @@ public class JSample {
     public static final String NAME = "name";
     public static final String USERID = "userid";
     public static final String USERNAME = "username";
+    public static final String TASKTODO = "tasktodo";
     public static final String FORMNAME = "formname";
     public static final String MAXSIZE = "maxsize";
     //***********************************************************************
@@ -29,6 +30,7 @@ public class JSample {
             jarray.addPair(new JsonPair(NAME, sample.getName()));
             jarray.addPair(new JsonPair(USERID, sample.userID()));
             jarray.addPair(new JsonPair(USERNAME, sample.getUserName()));
+            jarray.addPair(new JsonPair(TASKTODO, sample.taskToDo()));
             jarray.addPair(new JsonPair(FORMNAME, sample.getFormName()));
             jarray.addToArray();
         }        
@@ -45,6 +47,7 @@ public class JSample {
         jvariable.addPair(new JsonPair(NAME, sample.getName()));
         jvariable.addPair(new JsonPair(USERID, sample.userID()));
         jvariable.addPair(new JsonPair(USERNAME, sample.getUserName()));
+        jvariable.addPair(new JsonPair(TASKTODO, sample.taskToDo()));
         jvariable.addPair(new JsonPair(FORMNAME, sample.getFormName()));
         return jvariable;
     }
