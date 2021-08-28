@@ -3,22 +3,23 @@ package valine.sampling.api;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import lycine.sample.FinalForm;
 import lycine.sample.SampleCenterField;
 import mars.jsonsimple.JsonObject;
 import mars.jsonsimple.JsonPair;
 import methionine.AppException;
 import methionine.auth.AuthErrorCodes;
 import methionine.auth.Session;
-import tryptophan.design.Form;
 import valine.ApiAlpha;
 import valine.FlowAlpha;
 import valine.jbuilders.JFormAndQ;
 //***************************************************************************
-@WebServlet(name = "ApiGetFieldForm", urlPatterns = {ApiGetFieldForm.URL}, loadOnStartup=1)
-public class ApiGetFieldForm extends ApiAlpha {
-    public static final String URL = "/api/sampling/getform";
+@WebServlet(name = "ApiGetFieldForm", urlPatterns = {ApiGetFieldFinalForm.URL}, loadOnStartup=1)
+public class ApiGetFieldFinalForm extends ApiAlpha {
+    public static final String URL = "/api/sampling/getfinalform";
     public static final String SAMPLEID = "sampleid";
     public static final String JFORM = "form";
+    public static final String JQUESTIONS = "questions";
     //***********************************************************************
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
@@ -39,11 +40,12 @@ public class ApiGetFieldForm extends ApiAlpha {
             SampleCenterField center = new SampleCenterField();
             center.setSampleLambda(flowalpha.getAurigaObject().getSampleLambda());
             center.setVariableLambda(flowalpha.getAurigaObject().getDesignLambda());
-            Form form = center.getFormBySample(sampleid, session.getUserId());
+            FinalForm form = center.getFinalFormBySample(sampleid, session.getUserId());
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
             jsonresp.addPair(new JsonPair(RESULTDESCRIPTION, "Form by sample Ok"));
-            jsonresp.addPair(new JsonPair(JFORM, JFormAndQ.getForm(form)));
+            jsonresp.addPair(new JsonPair(JFORM, JFormAndQ.getForm(form.getForm())));
+            jsonresp.addPair(new JsonPair(JQUESTIONS, JFormAndQ.getQuestions(form.getQuestions())));
             this.sendResponse(resp, jsonresp);
         }
         catch (AppException e) { this.sendErrorResponse(resp, e.getMessage(), e.getErrorCode()); }
