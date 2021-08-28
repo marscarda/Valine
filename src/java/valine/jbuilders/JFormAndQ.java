@@ -20,7 +20,7 @@ public class JFormAndQ {
      */
     public static JsonObject getForm (Form form) {
         JsonObject jform = new JsonObject();
-        jform.addPair(new JsonPair(FORMID, form.questionaryID()));
+        jform.addPair(new JsonPair(FORMID, form.formID()));
         jform.addPair(new JsonPair(STARTLABEL, form.startLabel()));
         jform.addPair(new JsonPair(THANKSLABEL, form.thanksLabel()));
         return jform;
