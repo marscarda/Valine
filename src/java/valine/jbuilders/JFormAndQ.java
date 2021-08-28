@@ -5,7 +5,6 @@ import mars.jsonsimple.JsonObject;
 import mars.jsonsimple.JsonPair;
 import tryptophan.design.Form;
 import tryptophan.design.FormQuestion;
-import tryptophan.sample.Sample;
 //***************************************************************************
 public class JFormAndQ {
     //***********************************************************************
@@ -16,7 +15,6 @@ public class JFormAndQ {
     public static final String SUMARY = "sumary";
     public static final String STARTLABEL = "startlabel";
     public static final String THANKSLABEL = "thankslabel";
-    
     public static final String QUESTIONID = "questionid";
     public static final String VARIABLETYPE = "variabletype";
     public static final String VARIABLEID = "variableid";
