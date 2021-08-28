@@ -32,6 +32,7 @@ public class JSample {
             jarray.addPair(new JsonPair(USERNAME, sample.getUserName()));
             jarray.addPair(new JsonPair(TASKTODO, sample.taskToDo()));
             jarray.addPair(new JsonPair(FORMNAME, sample.getFormName()));
+            jarray.addPair(new JsonPair(MAXSIZE, sample.maxSize()));
             jarray.addToArray();
         }        
         juniverses.addPair(new JsonPair(COUNT, jarray.getCount()));
@@ -40,16 +41,17 @@ public class JSample {
     } 
     //=======================================================================
     public static JsonObject getSample (Sample sample) {
-        JsonObject jvariable = new JsonObject();
-        jvariable.addPair(new JsonPair(SAMPLEID, sample.sampleID()));
-        jvariable.addPair(new JsonPair(PROJECTID, sample.projectID()));
-        jvariable.addPair(new JsonPair(FORMID, sample.formID()));
-        jvariable.addPair(new JsonPair(NAME, sample.getName()));
-        jvariable.addPair(new JsonPair(USERID, sample.userID()));
-        jvariable.addPair(new JsonPair(USERNAME, sample.getUserName()));
-        jvariable.addPair(new JsonPair(TASKTODO, sample.taskToDo()));
-        jvariable.addPair(new JsonPair(FORMNAME, sample.getFormName()));
-        return jvariable;
+        JsonObject jsample = new JsonObject();
+        jsample.addPair(new JsonPair(SAMPLEID, sample.sampleID()));
+        jsample.addPair(new JsonPair(PROJECTID, sample.projectID()));
+        jsample.addPair(new JsonPair(FORMID, sample.formID()));
+        jsample.addPair(new JsonPair(NAME, sample.getName()));
+        jsample.addPair(new JsonPair(USERID, sample.userID()));
+        jsample.addPair(new JsonPair(USERNAME, sample.getUserName()));
+        jsample.addPair(new JsonPair(TASKTODO, sample.taskToDo()));
+        jsample.addPair(new JsonPair(FORMNAME, sample.getFormName()));
+        jsample.addPair(new JsonPair(MAXSIZE, sample.maxSize()));
+        return jsample;
     }
     //***********************************************************************
 }
