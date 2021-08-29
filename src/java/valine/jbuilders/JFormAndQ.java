@@ -12,13 +12,14 @@ public class JFormAndQ {
     public static final String ITEMS = "items";
     //-----------------------------------------------------------------------
     public static final String FORMID = "formid";
-    public static final String SUMARY = "sumary";
+    public static final String INTROSUMARY = "introsumary";
     public static final String STARTLABEL = "startlabel";
     public static final String THANKSLABEL = "thankslabel";
     public static final String QUESTIONID = "questionid";
     public static final String VARIABLETYPE = "variabletype";
     public static final String VARIABLEID = "variableid";
     public static final String LABEL = "label";
+    public static final String QUESTIONFORK = "fork";
     public static final String OPTIONS = "options";
     //***********************************************************************
     /**
@@ -29,7 +30,7 @@ public class JFormAndQ {
     public static JsonObject getForm (Form form) {
         JsonObject jform = new JsonObject();
         jform.addPair(new JsonPair(FORMID, form.formID()));
-        jform.addPair(new JsonPair(SUMARY, form.getSumary()));
+        jform.addPair(new JsonPair(INTROSUMARY, form.getSumary()));
         jform.addPair(new JsonPair(STARTLABEL, form.startLabel()));
         jform.addPair(new JsonPair(THANKSLABEL, form.thanksLabel()));
         return jform;
@@ -47,6 +48,7 @@ public class JFormAndQ {
             jarray.addPair(new JsonPair(QUESTIONID, question.questionID()));
             jarray.addPair(new JsonPair(VARIABLETYPE, question.getType()));
             jarray.addPair(new JsonPair(VARIABLEID, question.variableID()));
+            jarray.addPair(new JsonPair(QUESTIONFORK, question.getPath()));
             jarray.addPair(new JsonPair(LABEL, question.getLabel()));
             jarray.addToArray();
         }        
