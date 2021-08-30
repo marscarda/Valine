@@ -16,6 +16,7 @@ public class JFormAndQ {
     public static final String INTROSUMARY = "introsumary";
     public static final String STARTLABEL = "startlabel";
     public static final String THANKSLABEL = "thankslabel";
+    public static final String SUBMITLABEL = "submitlabel";
     public static final String QUESTIONID = "questionid";
     public static final String VARIABLETYPE = "variabletype";
     public static final String VARIABLEID = "variableid";
@@ -40,6 +41,7 @@ public class JFormAndQ {
         jform.addPair(new JsonPair(INTROSUMARY, form.getSumary()));
         jform.addPair(new JsonPair(STARTLABEL, form.startLabel()));
         jform.addPair(new JsonPair(THANKSLABEL, form.thanksLabel()));
+        jform.addPair(new JsonPair(SUBMITLABEL, form.submitLabel()));
         //---------------------------
         jform.addPair(new JsonPair(LBLPVIEWFORMULATION, finalform.labelPuvViewFormlt()));
         jform.addPair(new JsonPair(LBLPVIEWPOSITIVE, finalform.labelPubViewPositive()));
