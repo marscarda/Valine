@@ -1,4 +1,4 @@
-package valine.jbuilders;
+package valine.jsontreatment;
 //***************************************************************************
 import lycine.sample.FinalForm;
 import mars.jsonsimple.JsonArray;

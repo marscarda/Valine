@@ -12,7 +12,7 @@ import methionine.auth.Session;
 import tryptophan.sample.Sample;
 import valine.ApiAlpha;
 import valine.FlowAlpha;
-import valine.jbuilders.JSample;
+import valine.jsontreatment.JSample;
 //***************************************************************************
 @WebServlet(name = "ApiGetSampleInfo", urlPatterns = {ApiGetSampleInfo.URL}, loadOnStartup=1)
 public class ApiGetSampleInfo extends ApiAlpha{
