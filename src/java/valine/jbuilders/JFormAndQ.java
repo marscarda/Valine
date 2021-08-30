@@ -1,5 +1,6 @@
 package valine.jbuilders;
 //***************************************************************************
+import lycine.sample.FinalForm;
 import mars.jsonsimple.JsonArray;
 import mars.jsonsimple.JsonObject;
 import mars.jsonsimple.JsonPair;
@@ -21,18 +22,31 @@ public class JFormAndQ {
     public static final String LABEL = "label";
     public static final String QUESTIONFORK = "fork";
     public static final String OPTIONS = "options";
+    public static final String LBLPVIEWFORMULATION = "labelpvformulation";
+    public static final String LBLPVIEWPOSITIVE = "labelpvpositive";
+    public static final String LBLPVIEWNEUTRAL = "labelpvneutral";
+    public static final String LBLPVIEWNEGATIVE = "labelpvnegative";
+    public static final String LBLPVIEWUNKNOWN = "labelpvunknown";
     //***********************************************************************
     /**
      * 
-     * @param form
+     * @param finalform
      * @return 
      */
-    public static JsonObject getForm (Form form) {
+    public static JsonObject getForm (FinalForm finalform) {
+        Form form = finalform.getForm();
         JsonObject jform = new JsonObject();
         jform.addPair(new JsonPair(FORMID, form.formID()));
         jform.addPair(new JsonPair(INTROSUMARY, form.getSumary()));
         jform.addPair(new JsonPair(STARTLABEL, form.startLabel()));
         jform.addPair(new JsonPair(THANKSLABEL, form.thanksLabel()));
+        //---------------------------
+        jform.addPair(new JsonPair(LBLPVIEWFORMULATION, finalform.labelPuvViewFormlt()));
+        jform.addPair(new JsonPair(LBLPVIEWPOSITIVE, finalform.labelPubViewPositive()));
+        jform.addPair(new JsonPair(LBLPVIEWNEUTRAL, finalform.labelPubViewNeutral()));
+        jform.addPair(new JsonPair(LBLPVIEWNEGATIVE, finalform.labelPubViewNegative()));
+        jform.addPair(new JsonPair(LBLPVIEWUNKNOWN, finalform.labelPubViewUnknown()));
+        //---------------------------
         return jform;
     }
     //***********************************************************************

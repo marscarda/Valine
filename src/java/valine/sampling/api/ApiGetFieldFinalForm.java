@@ -44,7 +44,7 @@ public class ApiGetFieldFinalForm extends ApiAlpha {
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
             jsonresp.addPair(new JsonPair(RESULTDESCRIPTION, "Form by sample Ok"));
-            jsonresp.addPair(new JsonPair(JFORM, JFormAndQ.getForm(form.getForm())));
+            jsonresp.addPair(new JsonPair(JFORM, JFormAndQ.getForm(form)));
             jsonresp.addPair(new JsonPair(JQUESTIONS, JFormAndQ.getQuestions(form.getQuestions())));
             this.sendResponse(resp, jsonresp);
         }
