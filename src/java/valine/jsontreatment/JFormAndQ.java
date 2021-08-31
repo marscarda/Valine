@@ -42,7 +42,7 @@ public class JFormAndQ {
         jform.addPair(new JsonPair(INTROSUMARY, form.getSumary()));
         jform.addPair(new JsonPair(STARTLABEL, form.startLabel()));
         jform.addPair(new JsonPair(THANKSLABEL, form.thanksLabel()));
-        jform.addPair(new JsonPair(FINISHLABEL, form.submitLabel()));
+        jform.addPair(new JsonPair(FINISHLABEL, form.finishLabel()));
         //---------------------------
         jform.addPair(new JsonPair(LBLPVIEWFORMULATION, finalform.labelPuvViewFormlt()));
         jform.addPair(new JsonPair(LBLPVIEWPOSITIVE, finalform.labelPubViewPositive()));
