@@ -28,6 +28,7 @@ public class JFormAndQ {
     public static final String LBLPVIEWNEUTRAL = "labelpvneutral";
     public static final String LBLPVIEWNEGATIVE = "labelpvnegative";
     public static final String LBLPVIEWUNKNOWN = "labelpvunknown";
+    public static final String VALUE = "value";
     //***********************************************************************
     /**
      * 

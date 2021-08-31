@@ -11,8 +11,10 @@ import methionine.AppException;
 import methionine.auth.AuthErrorCodes;
 import methionine.auth.Session;
 import tryptophan.sample.Responder;
+import tryptophan.sample.ResponseValue;
 import valine.ApiAlpha;
 import valine.FlowAlpha;
+import valine.jsontreatment.JValuesDecoder;
 //***************************************************************************
 @WebServlet(name = "ApiAddFieldRespondse", urlPatterns = {ApiAddFieldRespondse.URL}, loadOnStartup=1)
 public class ApiAddFieldRespondse extends ApiAlpha {
@@ -34,20 +36,20 @@ public class ApiAddFieldRespondse extends ApiAlpha {
         }
         //===================================================================
         long sampleid = 0;
-        String values = req.getParameter(VALUES);
+        String stvalues = req.getParameter(VALUES);
         try { sampleid = Long.parseLong(req.getParameter(SAMPLEID)); } catch (Exception e) {}
         try {
             //----------------------------------------------------
-            JsonObject jvalues = JsonParser.parseAndCreateJsonObject(values);
+            JsonObject jvalues = JsonParser.parseAndCreateJsonObject(stvalues);
+            ResponseValue[] values = JValuesDecoder.decodeValues(jvalues);
             //----------------------------------------------------
             SampleCenterField center = new SampleCenterField();
             center.setSampleLambda(flowalpha.getAurigaObject().getSampleLambda());
             center.setProjectLambda(flowalpha.getAurigaObject().getProjectLambda());
             center.setBillingLambda(flowalpha.getAurigaObject().getBillingLambda());
-            
             Responder responder = new Responder();
             responder.setSampleId(sampleid);
-            
+            responder.setValues(values);
             center.AddResponse(responder, session.getUserId());
             //----------------------------------------------------
             JsonObject jsonresp = new JsonObject();
@@ -59,7 +61,7 @@ public class ApiAddFieldRespondse extends ApiAlpha {
         catch (AppException e) { this.sendErrorResponse(resp, e.getMessage(), e.getErrorCode()); }
         catch (Exception e) {
             sendServerErrorResponse(resp);
-            System.out.println("Unable to get Form by Sample " + sampleid);
+            System.out.println("Failed to add response to " + sampleid);
             System.out.println(e.getMessage());            
         }
         //===================================================================
