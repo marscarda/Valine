@@ -1,6 +1,6 @@
 package valine.jsontreatment;
 //***************************************************************************
-import lycine.sample.FinalForm;
+import lycine.sample.field.FinalForm;
 import mars.jsonsimple.JsonArray;
 import mars.jsonsimple.JsonObject;
 import mars.jsonsimple.JsonPair;
