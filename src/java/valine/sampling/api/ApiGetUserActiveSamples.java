@@ -3,7 +3,7 @@ package valine.sampling.api;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import lycine.sample.field.SampleCenterField;
+import lycine.sample.SampleCenterField;
 import mars.jsonsimple.JsonObject;
 import mars.jsonsimple.JsonPair;
 import methionine.auth.AuthErrorCodes;
