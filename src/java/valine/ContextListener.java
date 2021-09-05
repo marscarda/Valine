@@ -10,8 +10,6 @@ import methionine.auth.AuthLamda;
 import methionine.project.ProjectLambda;
 import threonine.map.QueryMapTabs;
 import tryptophan.survey.metric.MetricQueryInterface;
-import tryptophan.survey.SurveyTabs;
-//import tryptophan.universe.UniverseQryInterface;
 //****************************************************************************
 @WebListener
 public class ContextListener implements ServletContextListener {
@@ -142,25 +140,6 @@ public class ContextListener implements ServletContextListener {
         }
         //----------------------------------------------------------
         //We ensure Universe tables exists
-        
-        /*
-        if (LifeTimeValues.dbuniverse != null) {
-            UniverseQryInterface univ = new UniverseQryInterface();
-            univ.setElectraObject(electra);
-            univ.setDataBaseName(LifeTimeValues.dbuniverse);
-            try { 
-                univ.ensureTables();
-                System.out.println("Tables in " + LifeTimeValues.dbuniverse + " Ensured");
-            }
-            catch (Exception e) {
-                System.out.println("ERROR: Ensuring " + LifeTimeValues.dbuniverse + " tables error");
-                System.out.println(e.getMessage());
-            }            
-        }
-        */
-        
-        //----------------------------------------------------------
-        //We ensure Universe tables exists
         if (LifeTimeValues.dbmaps != null) {
             QueryMapTabs maps = new QueryMapTabs();
             maps.setElectraObject(electra);
@@ -185,20 +164,6 @@ public class ContextListener implements ServletContextListener {
             }
             catch (Exception e) {
                 System.out.println("ERROR: Ensuring " + LifeTimeValues.dbmetrics + " tables error");
-                System.out.println(e.getMessage());
-            }            
-        }
-        //----------------------------------------------------------
-        if (LifeTimeValues.dbsurvey != null) {
-            SurveyTabs survey = new SurveyTabs();
-            survey.setElectraObject(electra);
-            survey.setDataBaseName(LifeTimeValues.dbsurvey);
-            try { 
-                survey.ensureTables();
-                System.out.println("Tables in " + LifeTimeValues.dbsurvey + " Ensured");
-            }
-            catch (Exception e) {
-                System.out.println("ERROR: Ensuring " + LifeTimeValues.dbsurvey + " tables error");
                 System.out.println(e.getMessage());
             }            
         }
