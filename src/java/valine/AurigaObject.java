@@ -4,10 +4,6 @@ import methionine.billing.BillingLambda;
 import methionine.Electra;
 import methionine.auth.AuthLamda;
 import methionine.project.ProjectLambda;
-import serine.access.AccessLambda;
-import serine.blogging.publication.PubsLambda;
-import serine.pubs.object.ObjectPubLambda;
-import serine.webmedia.WebMediaList;
 import threonine.map.MapsLambda;
 import tryptophan.design.DesignLambda;
 import tryptophan.sample.SampleLambda;
@@ -123,42 +119,9 @@ public class AurigaObject {
         return responcelambda;
     }
     //*************************************************************
-    AccessLambda accesslambda = null;
-    @Deprecated
-    public AccessLambda getAccessLambda () throws Exception {
-        if (accesslambda == null) {
-            accesslambda = new AccessLambda();
-            accesslambda.setElectraObject(electra);
-            accesslambda.setDataBaseName(LifeTimeValues.dbaccess);
-        }
-        return accesslambda;
-    }
     //*************************************************************
-    PubsLambda pubslambda = null;
-    @Deprecated
-    public PubsLambda getPubsLambda () throws Exception {
-        if (pubslambda == null) {
-            pubslambda = new PubsLambda();
-            pubslambda.setElectraObject(electra);
-            pubslambda.setDataBaseName(LifeTimeValues.dbpublication);
-        }
-        return pubslambda;
-    }
     //*************************************************************
-    ObjectPubLambda objpubslambda = null;
-    @Deprecated
-    public ObjectPubLambda getObjectPubsLambda () throws Exception {
-        if (objpubslambda == null) {
-            objpubslambda = new ObjectPubLambda();
-            objpubslambda.setElectraObject(electra);
-            objpubslambda.setDataBaseName(LifeTimeValues.dbpublication);
-        }
-        return objpubslambda;
-    }
     //*************************************************************
-    static final WebMediaList MEDIALIST = new WebMediaList();
-    @Deprecated
-    public WebMediaList mediaList () { return MEDIALIST; }
     //*************************************************************
 }
 //**************************************************************************
