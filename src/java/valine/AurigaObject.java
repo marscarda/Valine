@@ -7,9 +7,7 @@ import methionine.project.ProjectLambda;
 import threonine.map.MapsLambda;
 import tryptophan.design.DesignLambda;
 import tryptophan.sample.SampleLambda;
-import tryptophan.survey.action.ActionSetLambda;
 import tryptophan.survey.metric.MetricQueryInterface;
-import tryptophan.survey.reaction.ReactionLambda;
 //**************************************************************************
 /**
  * Holds instances of interfaces to interact with the database.
@@ -96,32 +94,6 @@ public class AurigaObject {
         }
         return metricsinterface;
     }
-    //*************************************************************
-    ActionSetLambda surveylambda = null;
-    @Deprecated
-    public ActionSetLambda getSurveyLambda () {
-        if (surveylambda == null) {
-            surveylambda = new ActionSetLambda();
-            surveylambda.setElectraObject(electra);
-            surveylambda.setDataBaseName(LifeTimeValues.dbsurvey);
-        }
-        return surveylambda;
-    }
-    //*************************************************************
-    ReactionLambda responcelambda = null;
-    @Deprecated
-    public ReactionLambda getResponseLambda () throws Exception {
-        if (responcelambda == null) {
-            responcelambda = new ReactionLambda();
-            responcelambda.setElectraObject(electra);
-            responcelambda.setDataBaseName(LifeTimeValues.dbsurvey);
-        }
-        return responcelambda;
-    }
-    //*************************************************************
-    //*************************************************************
-    //*************************************************************
-    //*************************************************************
     //*************************************************************
 }
 //**************************************************************************
