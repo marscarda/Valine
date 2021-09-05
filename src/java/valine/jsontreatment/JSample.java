@@ -19,6 +19,7 @@ public class JSample {
     public static final String TASKTODO = "tasktodo";
     public static final String FORMNAME = "formname";
     public static final String MAXSIZE = "maxsize";
+    public static final String SIZE = "size";
     //***********************************************************************
     public static JsonObject getSamples (Sample[] samples) {
         JsonObject juniverses = new JsonObject();
@@ -51,6 +52,7 @@ public class JSample {
         jsample.addPair(new JsonPair(TASKTODO, sample.taskToDo()));
         jsample.addPair(new JsonPair(FORMNAME, sample.getFormName()));
         jsample.addPair(new JsonPair(MAXSIZE, sample.maxSize()));
+        jsample.addPair(new JsonPair(SIZE, sample.getSize()));
         return jsample;
     }
     //***********************************************************************
