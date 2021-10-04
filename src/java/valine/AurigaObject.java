@@ -5,8 +5,8 @@ import methionine.Electra;
 import methionine.auth.AuthLamda;
 import methionine.project.ProjectLambda;
 import threonine.map.MapsLambda;
-import tryptophan.design.DesignLambda;
-import tryptophan.sample.SampleLambda;
+import tryptophan.design.DesignAtlas;
+import tryptophan.sample.SampleAtlas;
 import tryptophan.survey.metric.MetricQueryInterface;
 //**************************************************************************
 /**
@@ -54,20 +54,20 @@ public class AurigaObject {
         return billinglambda;
     }
     //*************************************************************
-    DesignLambda designlambda = null;
-    public DesignLambda getDesignLambda () throws Exception {
+    DesignAtlas designlambda = null;
+    public DesignAtlas getDesignLambda () throws Exception {
         if (designlambda == null) {
-            designlambda = new DesignLambda();
+            designlambda = new DesignAtlas();
             designlambda.setElectraObject(electra);
             designlambda.setDataBaseName(LifeTimeValues.dbdesign);
         }
         return designlambda;
     }
     //*************************************************************
-    SampleLambda samplelambda = null;
-    public SampleLambda getSampleLambda () {
+    SampleAtlas samplelambda = null;
+    public SampleAtlas getSampleLambda () {
         if (samplelambda == null) {
-            samplelambda = new SampleLambda();
+            samplelambda = new SampleAtlas();
             samplelambda.setElectraObject(electra);
             samplelambda.setDataBaseName(LifeTimeValues.dbsample);
         }
