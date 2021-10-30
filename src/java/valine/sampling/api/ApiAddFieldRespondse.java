@@ -44,13 +44,11 @@ public class ApiAddFieldRespondse extends ApiAlpha {
             ResponseValue[] values = JValuesDecoder.decodeValues(jvalues);
             //----------------------------------------------------
             SampleCenterField center = new SampleCenterField();
-            center.setSampleLambda(flowalpha.getAurigaObject().getSampleLambda());
-            center.setProjectLambda(flowalpha.getAurigaObject().getProjectLambda());
-            center.setBillingLambda(flowalpha.getAurigaObject().getBillingLambda());
+            center.setAuriga(flowalpha.getAurigaObject());
             Responder responder = new Responder();
             responder.setSampleId(sampleid);
             responder.setValues(values);
-            center.AddResponse(responder, session.getUserId());
+            center.fieldResponse(responder, session.getUserId());
             //----------------------------------------------------
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
