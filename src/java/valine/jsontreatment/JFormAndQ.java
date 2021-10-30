@@ -5,7 +5,7 @@ import mars.jsonsimple.JsonArray;
 import mars.jsonsimple.JsonObject;
 import mars.jsonsimple.JsonPair;
 import tryptophan.design.Form;
-import tryptophan.design.FormQuestion;
+import tryptophan.design.FormMetricRef;
 //***************************************************************************
 public class JFormAndQ {
     //***********************************************************************
@@ -58,10 +58,10 @@ public class JFormAndQ {
      * @param questions
      * @return 
      */
-    public static JsonObject getQuestions (FormQuestion[] questions) {
+    public static JsonObject getQuestions (FormMetricRef[] questions) {
         JsonObject jquestions = new JsonObject();
         JsonArray jarray = new JsonArray();
-        for (FormQuestion question : questions) {
+        for (FormMetricRef question : questions) {
             jarray.addPair(new JsonPair(QUESTIONID, question.questionID()));
             jarray.addPair(new JsonPair(VARIABLETYPE, question.getType()));
             jarray.addPair(new JsonPair(VARIABLEID, question.variableID()));
