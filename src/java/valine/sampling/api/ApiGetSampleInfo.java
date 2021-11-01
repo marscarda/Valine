@@ -37,8 +37,7 @@ public class ApiGetSampleInfo extends ApiAlpha{
         try { sampleid = Long.parseLong(req.getParameter(SAMPLEID)); } catch (Exception e) {}
         try {
             SampleCenterField center = new SampleCenterField();
-            center.setVariableLambda(flowalpha.getAurigaObject().getDesignLambda());
-            center.setSampleLambda(flowalpha.getAurigaObject().getSampleLambda());
+            center.setAuriga(flowalpha.getAurigaObject());
             Sample sample = center.getSample(sampleid, session.getUserId());
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));

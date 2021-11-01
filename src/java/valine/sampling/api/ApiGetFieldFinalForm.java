@@ -38,8 +38,7 @@ public class ApiGetFieldFinalForm extends ApiAlpha {
         try { sampleid = Long.parseLong(req.getParameter(SAMPLEID)); } catch (Exception e) {}
         try {
             SampleCenterField center = new SampleCenterField();
-            center.setSampleLambda(flowalpha.getAurigaObject().getSampleLambda());
-            center.setVariableLambda(flowalpha.getAurigaObject().getDesignLambda());
+            center.setAuriga(flowalpha.getAurigaObject());
             FinalForm form = center.getFinalFormBySample(sampleid, session.getUserId());
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
