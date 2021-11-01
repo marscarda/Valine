@@ -16,8 +16,8 @@ import valine.ApiAlpha;
 import valine.FlowAlpha;
 import valine.jsontreatment.JValuesDecoder;
 //***************************************************************************
-@WebServlet(name = "ApiAddFieldRespondse", urlPatterns = {ApiAddFieldRespondse.URL}, loadOnStartup=1)
-public class ApiAddFieldRespondse extends ApiAlpha {
+@WebServlet(name = "ApiAddFieldResponse", urlPatterns = {ApiAddFieldResponse.URL}, loadOnStartup=1)
+public class ApiAddFieldResponse extends ApiAlpha {
     public static final String URL = "/api/sampling/addfieldresponse";
     public static final String SAMPLEID = "sampleid";
     public static final String VALUES = "values";
