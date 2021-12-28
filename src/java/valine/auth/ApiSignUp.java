@@ -1,5 +1,6 @@
 package valine.auth;
 //***************************************************************************
+import histidine.auth.ExcAuth;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,6 +44,12 @@ public class ApiSignUp extends ApiAlpha {
             sgnupuser.setName(user);
             sgnupuser.setPassWord(password);
             sgnupuser.setEmail(email);
+            
+            ExcAuth exc = new ExcAuth();
+            exc.setAuriga(flowalpha.getAurigaObject());
+            
+            
+            
             long userid = flowalpha.getAurigaObject().getAuthLambda().signUpUser(sgnupuser);
             Session session = flowalpha.getAurigaObject().getAuthLambda().createSession(flowalpha.getIpAddress(), userid);
             JsonObject jsonresp = new JsonObject();
