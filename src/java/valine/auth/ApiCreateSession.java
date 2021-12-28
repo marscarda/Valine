@@ -1,5 +1,6 @@
 package valine.auth;
 //***************************************************************************
+import histidine.auth.ExcAuth;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,7 +30,9 @@ public class ApiCreateSession extends ApiAlpha {
         String app = req.getParameter(APPID);
         //==========================================================
         try {
-            Session session = flowalpha.getAurigaObject().getAuthLambda().createSession(req.getRemoteAddr(), user, pass);
+            ExcAuth exc = new ExcAuth();
+            exc.setAuriga(flowalpha.getAurigaObject());
+            Session session = exc.signIn(flowalpha.getIpAddress(), app, "", user, pass);
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
             jsonresp.addPair(new JsonPair(RESULTDESCRIPTION, "signin succeded"));
