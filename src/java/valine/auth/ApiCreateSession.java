@@ -17,7 +17,6 @@ public class ApiCreateSession extends ApiAlpha {
     public static final String URL = "/auth/createsession";
     public static final String USER = "user";
     public static final String PASSWORD = "password";
-    public static final String APPID = "appid";
     //***********************************************************************
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
@@ -27,7 +26,7 @@ public class ApiCreateSession extends ApiAlpha {
         //===================================================================
         String user = req.getParameter(USER);
         String pass = req.getParameter(PASSWORD);
-        String app = req.getParameter(APPID);
+        String app = req.getParameter(APPLICATION);
         //==========================================================
         try {
             ExcAuth exc = new ExcAuth();

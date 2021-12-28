@@ -19,7 +19,6 @@ public class ApiSignUp extends ApiAlpha {
     public static final String PASSWORD = "password";
     public static final String PASSWORDRETYPE = "passwordretype";
     public static final String EMAIL = "email";
-    public static final String APPLICATION = "application";
    //************************************************************************
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
@@ -31,6 +30,7 @@ public class ApiSignUp extends ApiAlpha {
         String email = req.getParameter(EMAIL);
         String password = req.getParameter(PASSWORD);
         String passwordretype = req.getParameter(PASSWORDRETYPE);
+        String app = req.getParameter(APPLICATION);
         //===================================================================
         //We check both password match.
         if (!passwordretype.equals(password)) {
@@ -44,6 +44,7 @@ public class ApiSignUp extends ApiAlpha {
             sgnupuser.setName(user);
             sgnupuser.setPassWord(password);
             sgnupuser.setEmail(email);
+            sgnupuser.setApplication(app);
             ExcAuth exc = new ExcAuth();
             exc.setAuriga(flowalpha.getAurigaObject());
             Session session = exc.signUp(sgnupuser);
