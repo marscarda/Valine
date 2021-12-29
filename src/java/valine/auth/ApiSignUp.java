@@ -45,6 +45,7 @@ public class ApiSignUp extends ApiAlpha {
             sgnupuser.setPassWord(password);
             sgnupuser.setEmail(email);
             sgnupuser.setApplication(app);
+            sgnupuser.setIpAddress(flowalpha.getIpAddress());
             ExcAuth exc = new ExcAuth();
             exc.setAuriga(flowalpha.getAurigaObject());
             Session session = exc.signUp(sgnupuser);
