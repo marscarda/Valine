@@ -53,6 +53,7 @@ public class ApiSignUp extends ApiAlpha {
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
             jsonresp.addPair(new JsonPair(RESULTDESCRIPTION, "Signup succeded"));
             jsonresp.addPair(new JsonPair(CREDENTIALTOKEN, session.getLoginToken()));
+            jsonresp.addPair(new JsonPair(USERID, session.getUserId()));
             this.sendResponse(resp, jsonresp);
         }
         catch (AppException e) {
