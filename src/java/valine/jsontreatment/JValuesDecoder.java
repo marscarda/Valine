@@ -16,8 +16,8 @@ public class JValuesDecoder extends JFormAndQ {
         JsonObject jvalue;
         for (int n = 0; n < count; n++) {
             jvalue = jarray[n];
-            variableid = jvalue.getPair(VARIABLEID).getLongValue();
-            variabletype = jvalue.getPair(VARIABLETYPE).getIntValue();
+            variableid = jvalue.getPair(METRICID).getLongValue();
+            variabletype = jvalue.getPair(METRICTYPE).getIntValue();
             value = jvalue.getPair(VALUE).getIntValue();
             values[n] = new ResponseValue();
             values[n].setMetricId(variableid);

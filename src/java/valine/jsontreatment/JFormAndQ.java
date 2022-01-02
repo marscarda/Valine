@@ -18,8 +18,8 @@ public class JFormAndQ {
     public static final String THANKSLABEL = "thankslabel";
     public static final String FINISHLABEL = "finishlabel";
     public static final String QUESTIONID = "questionid";
-    public static final String VARIABLETYPE = "variabletype";
-    public static final String VARIABLEID = "variableid";
+    public static final String METRICTYPE = "metrictype";
+    public static final String METRICID = "metricid";
     public static final String LABEL = "label";
     public static final String QUESTIONFORK = "fork";
     public static final String OPTIONS = "options";
@@ -63,8 +63,8 @@ public class JFormAndQ {
         JsonArray jarray = new JsonArray();
         for (FormMetricRef question : questions) {
             jarray.addPair(new JsonPair(QUESTIONID, question.questionID()));
-            jarray.addPair(new JsonPair(VARIABLETYPE, question.getType()));
-            jarray.addPair(new JsonPair(VARIABLEID, question.variableID()));
+            jarray.addPair(new JsonPair(METRICTYPE, question.getType()));
+            jarray.addPair(new JsonPair(METRICID, question.variableID()));
             jarray.addPair(new JsonPair(QUESTIONFORK, question.getPath()));
             jarray.addPair(new JsonPair(LABEL, question.getLabel()));
             jarray.addToArray();
