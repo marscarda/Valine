@@ -41,7 +41,7 @@ public class ApiGetSampleInfo extends ApiAlpha{
             Sample sample = center.getSample(sampleid, session.getUserId());
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
-            jsonresp.addPair(new JsonPair(RESULTDESCRIPTION, "Samples Ok"));
+            jsonresp.addPair(new JsonPair(RESULTDESCRIPTION, "Sample Info Ok"));
             jsonresp.addPair(new JsonPair(JSAMPLE, JSample.getSample(sample)));
             this.sendResponse(resp, jsonresp);
         }
