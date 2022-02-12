@@ -118,7 +118,7 @@ public class WebFrontAlpha extends HttpServlet {
     protected boolean forceToSSL (FlowBeta flowbeta) {
         //=========================================================
         //If not using SSL nothing to do
-        if (!LifeTimeValues.usingssl) return false;
+        if (!LifeTime.usingSSL()) return false;
         //=========================================================
         //Is already secure.
         if (flowbeta.getRequest().isSecure()) return false;
@@ -147,7 +147,7 @@ public class WebFrontAlpha extends HttpServlet {
     protected boolean toSSLIfLoggedIn (FlowBeta flowbeta) {
         //=========================================================
         //If not using SSL nothing to do
-        if (!LifeTimeValues.usingssl) return false;
+        if (!LifeTime.usingSSL()) return false;
         //=========================================================
         //Is already secure.
         if (flowbeta.getRequest().isSecure()) return false;

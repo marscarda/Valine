@@ -108,7 +108,7 @@ public class CookiesFlow {
         if (logintoken != null) {
             ck = new Cookie(CKLOGINTOKEN, logintoken);
             //----------------------------
-            if (LifeTimeValues.usingssl) ck.setSecure(loggedin);
+            if (LifeTime.usingSSL()) ck.setSecure(loggedin);
             //----------------------------            
             ck.setHttpOnly(true);
             ck.setMaxAge(TIMELOGIN);

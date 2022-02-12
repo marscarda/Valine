@@ -8,17 +8,28 @@ import methionine.Electra;
 import histidine.AurigaObject;
 //****************************************************************************
 @WebListener
-public class ContextListener implements ServletContextListener {
+public class LifeTime implements ServletContextListener {
     //***********************************************************************
     //These properties are directly initialized into Electra.
     static final String PROP_MASTER_DBHOST = "db_master_host";
     static final String PROP_SLAVE_DBHOST = "db_slave_host";
     static final String PROP_DBMASTER = "db_ismaster";
+    static final String PROP_USING_SSL = "using_ssl";
     //-----------------------------------------------------------------------
-    boolean ismaster = false;
+    static final String DBUSER = "alanine";
+    static final String DBPASS = "mrs15yf45l0fhh451gfdsd4rt32fdf";
     //-----------------------------------------------------------------------
-    static final String DBUSER = "valine";
-    static final String DBPASS = "jkdy89sreft45trt5trtg5elkwqscf";
+    private static boolean usingssl = false;
+    //***********************************************************************
+    private boolean ismaster = false;
+    //***********************************************************************
+    //URLs
+    //static final String RESPONSEURL = "radareleven.com/survey/start/";
+    static final String RESPONSEURL = "localhost/survey/start/";
+    public static String responseURL () {
+        if (usingssl) return "https://" + RESPONSEURL;
+        return "http://" + RESPONSEURL;
+    }
     //***********************************************************************
     @Override
     public void contextInitialized(ServletContextEvent sce) {
@@ -41,7 +52,7 @@ public class ContextListener implements ServletContextListener {
             properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("application.properties"));
             //---------------------------------------------------------------
             initElectra(properties);
-            LifeTimeValues.initValues(properties);
+            initSSLStatus(properties);
             System.out.println("Properties Loaded");
         }
         catch (Exception e) {
@@ -81,6 +92,20 @@ public class ContextListener implements ServletContextListener {
         //-----------------------------------------------------
         System.out.println("Electra initialized");
         //-----------------------------------------------------
+    }
+    //=======================================================================
+    private void initSSLStatus (Properties properties) {
+        //========================================================
+        String aux;        
+        //========================================================
+        System.out.println("Setting SSL status");
+        //========================================================
+        aux = properties.getProperty(PROP_USING_SSL);
+        if (aux == null) System.out.println("Warning: Property " + PROP_USING_SSL + " Not set");
+        else usingssl = aux.equalsIgnoreCase("Y");
+        //========================================================
+        System.out.println("SSL status is " + usingssl);
+        //========================================================
     }
     //***********************************************************************
     /**
@@ -183,6 +208,8 @@ public class ContextListener implements ServletContextListener {
         auriga.getElectra().disposeDBConnection();
         //*******************************************************************
     }
+    //***********************************************************************
+    public static boolean usingSSL () { return usingssl; }
     //***********************************************************************
 }
 //****************************************************************************
