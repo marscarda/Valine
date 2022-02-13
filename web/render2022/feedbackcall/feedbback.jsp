@@ -79,11 +79,7 @@ var metrics = <%=back.jMetrics()%>;
         <div id="options" class="option"></div>
     </div>
 </body>
-
 <script>
     initialize();
 </script>
-
-
-
 </html>

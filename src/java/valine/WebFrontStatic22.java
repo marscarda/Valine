@@ -17,11 +17,11 @@ public class WebFrontStatic22 extends WebFrontAlpha {
     public static final String STRONG22 = "strong";
     //***********************************************************************
     //CSSs
-    public static final String CSSROOT = "mfdgrdfkjkjtretdfgd";
+    public static final String CSSROOT = "mfdgrdfkjiotretdfgd";
     //=======================================================================
     //JS
-    public static final String JSHTTP = "mdfjkretrt";
-    public static final String JSTAGANIMATE = "nnfkdffdsrofkjsdsfg";
+    public static final String JSHTTP = "bhdrtetdfsdjfsdf";
+    public static final String JSTAGANIMATE = "nnvnfdtrjsdsfg";
     //***********************************************************************
     //BITMAP
     public static final String HEADTITLELOGO = "nghdtertf";

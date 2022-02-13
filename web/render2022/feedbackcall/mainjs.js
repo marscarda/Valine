@@ -14,7 +14,13 @@ let fillStart = () => {
     start.innerHTML = decodeURI(form.startlabel);
 };
 
-let startClick = () => { nextMetric(); }
+let startClick = () => { 
+    var page = document.getElementById('intropage');
+    page.style.height = 0;
+    page = document.getElementById('metricnav');
+    page.style.height = 'auto';
+    nextMetric(); 
+}
 let nextMetric = () => {
     if (position >= metrics.count) endReached();
     var metric = metrics.items[position];
@@ -23,7 +29,7 @@ let nextMetric = () => {
             metricPublicView(metric);
     }
     var fadein = new ElementFadeIn();
-    fadein.setElement('metricpage');
+    fadein.setElement('metricnav');
     fadein.start();
 };
 let endReached = () => {

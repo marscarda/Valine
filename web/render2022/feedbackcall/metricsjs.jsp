@@ -69,10 +69,11 @@ let metricPublicView = (metric) => {
         option.onclick = () => {
             document.getElementById('positive').style.backgroundColor = "#aaa";
             var outup = new ElementOutUp();
+            outup.setElement('metricnav');
             outup.onFinish = () => {
                 metric.value = 1;
                 position++;
-                nextQuestion();
+                nextMetric();
             }
             outup.start();
         }
@@ -116,10 +117,11 @@ let metricPublicView = (metric) => {
         option.onclick = () => {
             document.getElementById('neutral').style.backgroundColor = "#aaa";
             var outup = new ElementOutUp();
+            outup.setElement('metricnav');
             outup.onFinish = () => {
                 metric.value = 2;
                 position++;
-                nextQuestion();
+                nextMetric();
             }
             outup.start();
         }
@@ -163,10 +165,11 @@ let metricPublicView = (metric) => {
         option.onclick = () => {
             document.getElementById('negative').style.backgroundColor = "#aaa";
             var outup = new ElementOutUp();
+            outup.setElement('metricnav');
             outup.onFinish = () => {
                 metric.value = 3;
                 position++;
-                nextQuestion();
+                nextMetric();
             }
             outup.start();
         }        
@@ -210,10 +213,11 @@ let metricPublicView = (metric) => {
         option.onclick = () => {
             document.getElementById('unknown').style.backgroundColor = "#aaa";
             var outup = new ElementOutUp();
+            outup.setElement('metricnav');
             outup.onFinish = () => {
                 metric.value = 4;
                 position++;
-                nextQuestion();
+                nextMetric();
             }
             outup.start();
         }        
