@@ -40,6 +40,13 @@ public class WebBackFeedbackCall extends WebBackAlpha {
         if (metricrefs == null) return new FormMetricRef[0];
         return metricrefs;
     }
-    public String jMetrics () { return JFeedback.getMetrics(getMetricRefs()).toString(); }    
+    public String jMetrics () { return JFeedback.getMetrics(getMetricRefs()).toString(); }
+    //***********************************************************************
+    public String apiSubmitURL () {
+        StringBuilder url = new StringBuilder(this.getRootURL());
+        url.append(ApiSubmitResponse.URL);
+        return url.toString();
+    }    
+    //***********************************************************************
 }
 //***************************************************************************

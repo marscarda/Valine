@@ -30,6 +30,7 @@ public class LifeTime implements ServletContextListener {
         if (usingssl) return "https://" + RESPONSEURL;
         return "http://" + RESPONSEURL;
     }
+    public static final String HOMEPAGE = "https://radareleven.com";
     //***********************************************************************
     @Override
     public void contextInitialized(ServletContextEvent sce) {
