@@ -3,7 +3,7 @@ package valine.jsontreatment;
 import mars.jsonsimple.JsonObject;
 import tryptophan.sample.ResponseValue;
 //***************************************************************************
-public class JValuesDecoder extends JFormAndQ {
+public class JValuesDecoder extends JFeedback {
     //***********************************************************************
     public static ResponseValue[] decodeValues (JsonObject jvalues) {
         //=========================================================

@@ -3,6 +3,9 @@ package valine.feedback.web;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import lycine.sample.FetchFeedbackCall;
+import tryptophan.design.Form;
+import tryptophan.sample.ResponseCall;
 import valine.FlowBeta;
 import valine.WebFrontAlpha;
 //***************************************************************************
@@ -21,8 +24,25 @@ public class WebFrontFeedbackCall extends WebFrontAlpha {
         String code = this.getURLsParamPart(request);
         WebBackFeedbackCall back = new WebBackFeedbackCall();
         back.setRootURL(flowbeta.getRootURL());
-        
-    
+        try {
+            //===================================================
+            FetchFeedbackCall exc = new FetchFeedbackCall();
+            exc.setAuriga(flowbeta.getAurigaObject());
+            exc.setCallCode(code);
+            exc.prepareIntro();
+            //===================================================
+            ResponseCall call = exc.getCall();
+            Form form = exc.getForm();
+            back.setCall(call);
+            back.setForm(form);
+            //===================================================
+        }
+        catch (Exception e) {
+            //---------------------------------------------------
+            System.out.println("Failure in response app page (gedoru)");
+            System.out.println(e.getMessage());
+            //---------------------------------------------------
+        }        
         request.setAttribute(PAGEATTRKEY, back);
         //===================================================================
         this.beforeSend(flowbeta);

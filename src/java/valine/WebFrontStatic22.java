@@ -4,37 +4,44 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 //***************************************************************************
-@WebServlet (name="WebEntryStatic", urlPatterns= { WebFrontStatic.URLPATTERN} )
-public class WebFrontStatic extends WebFrontAlpha {
+@WebServlet (name="WebFrontStatic22", urlPatterns= { WebFrontStatic22.URLPATTERN} )
+public class WebFrontStatic22 extends WebFrontAlpha {
     //=======================================================================
-    public static final String PAGE = "/static";
+    public static final String PAGE = "/static22";
     public static final String URLPATTERN = PAGE + "/*";
     //***********************************************************************
-    static final int MAXAGE = 3600;
+    static final int MAXAGE = 100000;
     //***********************************************************************
     //FONTS
-    public static final String MENIUNG20 = "menuing";
-    public static final String TEXTGRAL20 = "general";
+    public static final String TEXTGRAL22 = "general";
+    public static final String STRONG22 = "strong";
     //***********************************************************************
     //CSSs
-    public static final String CSSROOT = "augcguuacgcagagugcaugac";
-    public static final String CSSFORM = "auggucccugcgauggagcugca";
-    public static final String CSSLISTANDBOX = "auggagccgaucagcgauggag";
-    public static final String CSSPOPUP = "auggagccgaucagccgaugcaag";
+    public static final String CSSROOT = "mfdgrdfkjkjtretdfgd";
     //=======================================================================
     //JS
-    public static final String JSHTTP = "ndfrtgdger";
-    public static final String JSTAGANIMATE = "augucauggcuugguacuagugacgu";
-    public static final String JSMAP = "augucauggcucagucacfgu";
+    public static final String JSHTTP = "mdfjkretrt";
+    public static final String JSTAGANIMATE = "nnfkdffdsrofkjsdsfg";
     //***********************************************************************
     //BITMAP
-    public static final String ZOOMINICON = "mssewsdtetsda";
-    public static final String ZOOMOUTICON = "bstdrgdgdfgd";
+    public static final String HEADTITLELOGO = "nghdtertf";
+    public static final String MAPRECINFOICON = "hfgyrtyryxcv";
+    public static final String MAPENTERICON = "vdjfkjkjkdj";
+    public static final String MAPSTATSICON = "bfgrtgfhghg";
+    public static final String ZOOMINICON = "uofgkerndfbnb";
+    public static final String ZOOMOUTICON = "nfervdfr4dsff";
     public static final String HANDICON = "rwerdfsdfsdfs";
     //-----------------------------------------------------------------------
-    public static final String PUBVIEW = "nfdgrtertertert";
-    public static final String SURVEYWORK = "nbdsterterter";
-    public static final String SAMPLES = "gergrtrterter";
+    //Survey Icons
+    public static final String SURVEYOPT_POSITIVE = "kgthdsfvrtrt";
+    public static final String SURVEYOPT_NEUTRAL = "qwfvvchbfghgh";
+    public static final String SURVEYOPT_NEGATIVE = "ghdfgderdfsf";
+    public static final String SURVEYOPT_UNKNOWN = "qplfgdjfdghjd";    
+    //***********************************************************************
+    //THIRD PARTY ICONS
+    public static final String PAYPALICON = "mgdftreter";
+    public static final String TWITTERICON = "fkgjkjjtrt";
+    public static final String YOUTUBEICON = "klerojrtrt";
     //***********************************************************************
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
@@ -52,26 +59,22 @@ public class WebFrontStatic extends WebFrontAlpha {
         String dispatchfile = null;
         //===================================================================
         //Fonts
-        if (resourcename.equals(TEXTGRAL20)) dispatchfile = "/static2020/arm.ttf";
+        if (resourcename.equals(TEXTGRAL22)) dispatchfile = "/static2022/arm.ttfa";
+        if (resourcename.equals(STRONG22)) dispatchfile = "/static2022/impact.ttf";
         //-------------------------------------------------------------------
         //CSSs
-        if (resourcename.equals(CSSROOT)) dispatchfile = "/static2020/root.css";
-        if (resourcename.equals(CSSFORM)) dispatchfile = "/static2020/form.css";
-        if (resourcename.equals(CSSLISTANDBOX)) dispatchfile = "/static2020/listandbox.css";
-        if (resourcename.equals(CSSPOPUP)) dispatchfile = "/static2020/popup.css";
+        if (resourcename.equals(CSSROOT)) dispatchfile = "/static2022/root.css";
         //-------------------------------------------------------------------
         //JS
-        if (resourcename.equals(JSHTTP)) dispatchfile = "/static2020/httprequest.js";
-        if (resourcename.equals(JSTAGANIMATE)) dispatchfile = "/static2020/taganimate.js";
-        if (resourcename.equals(JSMAP)) dispatchfile = "/static2020/mapdata.js";
+        if (resourcename.equals(JSHTTP)) dispatchfile = "/static2022/httprequest.js";
+        if (resourcename.equals(JSTAGANIMATE)) dispatchfile = "/static2022/taganimate.js";
         //-------------------------------------------------------------------
         //BITMAP
-        if (resourcename.equals(ZOOMINICON)) dispatchfile = "/static2020/zoomin.png";
-        if (resourcename.equals(ZOOMOUTICON)) dispatchfile = "/static2020/zoomout.png";
-        if (resourcename.equals(HANDICON)) dispatchfile = "/static2020/hand.png";
-        if (resourcename.equals(PUBVIEW)) dispatchfile = "/static2020/publicview.png";
-        if (resourcename.equals(SURVEYWORK)) dispatchfile = "/static2020/surveyset.png";
-        if (resourcename.equals(SAMPLES)) dispatchfile = "/static2020/samples.png";
+        //-------------------------------------------------------------------
+        if (resourcename.equals(SURVEYOPT_POSITIVE)) dispatchfile = "/static2022/optionsicon/ic_positive.png";
+        if (resourcename.equals(SURVEYOPT_NEUTRAL)) dispatchfile = "/static2022/optionsicon/ic_neutral.png";
+        if (resourcename.equals(SURVEYOPT_NEGATIVE)) dispatchfile = "/static2022/optionsicon/ic_negative.png";
+        if (resourcename.equals(SURVEYOPT_UNKNOWN)) dispatchfile = "/static2022/optionsicon/ic_nanhito.png";
         //-------------------------------------------------------------------
         if (dispatchfile == null) {
             libintfc.setStatusResponse(404);

@@ -12,7 +12,7 @@ import methionine.auth.AuthErrorCodes;
 import methionine.auth.Session;
 import valine.ApiAlpha;
 import valine.FlowAlpha;
-import valine.jsontreatment.JFormAndQ;
+import valine.jsontreatment.JFeedback;
 //***************************************************************************
 @WebServlet(name = "ApiGetFieldForm", urlPatterns = {ApiGetFieldFinalForm.URL}, loadOnStartup=1)
 public class ApiGetFieldFinalForm extends ApiAlpha {
@@ -43,8 +43,8 @@ public class ApiGetFieldFinalForm extends ApiAlpha {
             JsonObject jsonresp = new JsonObject();
             jsonresp.addPair(new JsonPair(RESULT, RESULTOK));
             jsonresp.addPair(new JsonPair(RESULTDESCRIPTION, "Form by sample Ok"));
-            jsonresp.addPair(new JsonPair(JFORM, JFormAndQ.getForm(form)));
-            jsonresp.addPair(new JsonPair(JQUESTIONS, JFormAndQ.getQuestions(form.getQuestions())));
+            jsonresp.addPair(new JsonPair(JFORM, JFeedback.getForm(form)));
+            jsonresp.addPair(new JsonPair(JQUESTIONS, JFeedback.getQuestions(form.getQuestions())));
             this.sendResponse(resp, jsonresp);
         }
         catch (AppException e) { this.sendErrorResponse(resp, e.getMessage(), e.getErrorCode()); }
