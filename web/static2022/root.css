@@ -20,13 +20,15 @@ div.content {
     padding-bottom: 50px;
     min-height: 400px;
 }
-div.contentresponsive {
+div.rootresponsive {
     width: 90vw; 
     max-width: 600px; 
     max-width: 600px; 
     margin-left: auto; 
     margin-right: auto;
-    background-color: #f00;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
 }
 a {
     text-decoration: none;

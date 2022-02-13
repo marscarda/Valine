@@ -12,16 +12,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="<%=back.getRootURL()%><%=WebFrontStatic22.PAGE%>/<%=WebFrontStatic22.CSSROOT%>">
 <style>
-    div.rootresponsive {
-        width: 90vw; 
-        max-width: 600px; 
-        max-width: 600px; 
-        margin-left: auto; 
-        margin-right: auto;
-        opacity: 0;
-        height: 0;
-        overflow: hidden;
-    }
     div.commandbox {
         font-size: 1.4em;
         padding: 1em 0.5em;
@@ -63,7 +53,7 @@
     div.powered {
         margin-top: 35vh;
         text-align: right;
-    }    
+    }
 </style>
 <script src="<%=back.getRootURL()%><%=WebFrontStatic22.PAGE%>/<%=WebFrontStatic22.JSHTTP%>"></script>
 <script src="<%=back.getRootURL()%><%=WebFrontStatic22.PAGE%>/<%=WebFrontStatic22.JSTAGANIMATE%>"></script>
@@ -108,7 +98,7 @@ let doFinish = () => {
         showThanks();
     }
     req.setCallBack(callback);
-    req.addParam('<%=ApiSubmitResponse.RESPONSECALLID%>', call.responsecallid);
+    req.addParam('<%=ApiSubmitResponse.RESPONSECALLID%>', call.feedbackcallid);
     req.addParam('<%=ApiSubmitResponse.REPVALUES%>', JSON.stringify(submitpacket));
     req.setURL('<%=back.apiSubmitURL()%>');
     try { req.executepost(); }

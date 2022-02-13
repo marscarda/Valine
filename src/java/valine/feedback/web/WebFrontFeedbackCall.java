@@ -5,9 +5,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import lycine.sample.DisplayLabels;
 import lycine.sample.FetchFeedbackCall;
+import methionine.AppException;
 import tryptophan.design.Form;
 import tryptophan.design.FormMetricRef;
 import tryptophan.sample.ResponseCall;
+import tryptophan.sample.SampleErrorCodes;
 import valine.FlowBeta;
 import valine.WebFrontAlpha;
 //***************************************************************************
@@ -26,6 +28,7 @@ public class WebFrontFeedbackCall extends WebFrontAlpha {
         String code = this.getURLsParamPart(request);
         WebBackFeedbackCall back = new WebBackFeedbackCall();
         back.setRootURL(flowbeta.getRootURL());
+        boolean available = true;
         try {
             //===================================================
             FetchFeedbackCall exc = new FetchFeedbackCall();
@@ -35,15 +38,20 @@ public class WebFrontFeedbackCall extends WebFrontAlpha {
             exc.PrepareSurvey();
             //===================================================
             ResponseCall call = exc.getCall();
-            Form form = exc.getForm();
-            DisplayLabels labels = exc.getLabels();
-            FormMetricRef[] metrics = exc.getMetrics();
-            back.setCall(call);
-            back.setForm(form);
-            back.setLabels(labels);
-            back.setMetricRefs(metrics);
+            if (call.isExpired()) available = false;
+            if (call.responded()) available = false;
+            if (available) {
+                Form form = exc.getForm();
+                DisplayLabels labels = exc.getLabels();
+                FormMetricRef[] metrics = exc.getMetrics();
+                back.setCall(call);
+                back.setForm(form);
+                back.setLabels(labels);
+                back.setMetricRefs(metrics);
+            }
             //===================================================
         }
+        catch (AppException e) { if (e.getErrorCode() == SampleErrorCodes.RESPONSECALLNOTFOUND) available = false; }
         catch (Exception e) {
             //---------------------------------------------------
             System.out.println("Failure in response app page (gedoru)");
@@ -53,7 +61,8 @@ public class WebFrontFeedbackCall extends WebFrontAlpha {
         request.setAttribute(PAGEATTRKEY, back);
         //===================================================================
         this.beforeSend(flowbeta);
-        this.dispatchNormal("/render2022/feedbackcall/feedbback.jsp", request, response);
+        if (available) this.dispatchNormal("/render2022/feedbackcall/feedbback.jsp", request, response);
+        else this.dispatchNormal("/render2022/feedbackcall/invalid.jsp", request, response);
         //===================================================================
         this.finallJob(flowbeta);
         this.destroyFlowBeta(flowbeta);

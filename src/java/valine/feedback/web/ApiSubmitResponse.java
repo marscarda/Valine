@@ -30,10 +30,6 @@ public class ApiSubmitResponse extends ApiAlpha {
         //==========================================================
         long callid = 0;
         String repvalues = req.getParameter(REPVALUES);
-        
-        
-        System.out.println(repvalues);
-        
         try { callid = Long.parseLong(req.getParameter(RESPONSECALLID)); } catch (Exception e) {}
         try {
             //------------------------------------------------------
@@ -45,12 +41,7 @@ public class ApiSubmitResponse extends ApiAlpha {
             submit.setAuriga(flowalpha.getAurigaObject());
             submit.setId(callid);
             submit.setValues(values);
-            
-            
-            //submit.doFeedbackCall();
-            
-            
-            
+            submit.doFeedbackCall();
             //------------------------------------------------------
             JsonObject jsonresp = new JsonObject();
             JsonPair pairResp;
@@ -62,12 +53,7 @@ public class ApiSubmitResponse extends ApiAlpha {
             this.sendResponse(resp, jsonresp);            
             //----------------------------------------
         }
-        
-        
-        //catch (AppException e) { this.sendErrorResponse(resp, e.getMessage(), e.getErrorCode()); }
-        
-        
-        
+        catch (AppException e) { this.sendErrorResponse(resp, e.getMessage(), e.getErrorCode()); }
         catch (JsonParseException e) { this.sendErrorResponse(resp, "Invalid data", AppException.INVALIDDATASUBMITED); }
         catch (Exception e) {
             sendServerErrorResponse(resp);
