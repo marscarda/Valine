@@ -1,13 +1,14 @@
 package valine.feedback.web;
 //***************************************************************************
+import lycine.sample.DisplayLabels;
 import tryptophan.design.Form;
+import tryptophan.design.FormMetricRef;
 import tryptophan.sample.ResponseCall;
 import valine.WebBackAlpha;
+import valine.jsontreatment.JDisplayLabels;
 import valine.jsontreatment.JFeedback;
 //***************************************************************************
 public class WebBackFeedbackCall extends WebBackAlpha {
-    
-    
     //***********************************************************************
     Form form = null;
     void setForm (Form form) { this.form = form; }
@@ -24,7 +25,21 @@ public class WebBackFeedbackCall extends WebBackAlpha {
         return call;
     }
     public String jCall () { return JFeedback.getCall(getCall()).toString(); }
-    //***********************************************************************    
-    
+    //***********************************************************************
+    DisplayLabels labels = null;
+    void setLabels (DisplayLabels labels) { this.labels = labels; }
+    public DisplayLabels getLables () {
+        if (labels == null) return new DisplayLabels();
+        return labels;
+    }
+    public String jLabels () { return JDisplayLabels.getLabels(getLables()).toString(); }    
+    //***********************************************************************
+    FormMetricRef[] metricrefs = null;
+    void setMetricRefs (FormMetricRef[] metricrefs) { this.metricrefs = metricrefs; }
+    public FormMetricRef[] getMetricRefs () {
+        if (metricrefs == null) return new FormMetricRef[0];
+        return metricrefs;
+    }
+    public String jMetrics () { return JFeedback.getMetrics(getMetricRefs()).toString(); }    
 }
 //***************************************************************************

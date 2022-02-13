@@ -3,8 +3,10 @@ package valine.feedback.web;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import lycine.sample.DisplayLabels;
 import lycine.sample.FetchFeedbackCall;
 import tryptophan.design.Form;
+import tryptophan.design.FormMetricRef;
 import tryptophan.sample.ResponseCall;
 import valine.FlowBeta;
 import valine.WebFrontAlpha;
@@ -30,11 +32,16 @@ public class WebFrontFeedbackCall extends WebFrontAlpha {
             exc.setAuriga(flowbeta.getAurigaObject());
             exc.setCallCode(code);
             exc.prepareIntro();
+            exc.PrepareSurvey();
             //===================================================
             ResponseCall call = exc.getCall();
             Form form = exc.getForm();
+            DisplayLabels labels = exc.getLabels();
+            FormMetricRef[] metrics = exc.getMetrics();
             back.setCall(call);
             back.setForm(form);
+            back.setLabels(labels);
+            back.setMetricRefs(metrics);
             //===================================================
         }
         catch (Exception e) {

@@ -96,6 +96,22 @@ public class JFeedback {
         return jcall;
     }
     //***********************************************************************
+    public static JsonObject getMetrics (FormMetricRef[] questions) {
+        JsonObject jmetrics = new JsonObject();
+        JsonArray jarray = new JsonArray();
+        for (FormMetricRef question : questions) {
+            jarray.addPair(new JsonPair(QUESTIONID, question.questionID()));
+            jarray.addPair(new JsonPair(METRICTYPE, question.getType()));
+            jarray.addPair(new JsonPair(METRICID, question.variableID()));
+            jarray.addPair(new JsonPair(QUESTIONFORK, question.getPath()));
+            jarray.addPair(new JsonPair(LABEL, question.getLabel()));
+            jarray.addToArray();
+        }        
+        jmetrics.addPair(new JsonPair(COUNT, jarray.getCount()));
+        jmetrics.addPair(new JsonPair(ITEMS, jarray.getArray()));
+        return jmetrics;
+    }    
+    //***********************************************************************
     /**
      * 
      * @param questions
