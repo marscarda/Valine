@@ -16,8 +16,8 @@ public class LifeTime implements ServletContextListener {
     static final String PROP_DBMASTER = "db_ismaster";
     static final String PROP_USING_SSL = "using_ssl";
     //-----------------------------------------------------------------------
-    static final String DBUSER = "alanine";
-    static final String DBPASS = "mrs15yf45l0fhh451gfdsd4rt32fdf";
+    static final String DBUSER = "valine";
+    static final String DBPASS = "kiowadwfmnoruecqaljferpfdeqsaz";
     //-----------------------------------------------------------------------
     private static boolean usingssl = false;
     //***********************************************************************
